@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/css/style-login.css" />
+</head>
+
+<body>
+  <main>
+    <div class="box">
+      <div class="inner-box">
+        <div class="forms-wrap">
+          <form id="sig_in_form" action="/login" class="sign-in-form" method="POST">
+            <div class="heading">
+              <img src="/img/logo-ufps.jpg" alt="loguito" class="src" width="250px">
+            </div>
+            <div class="actual-form">
+              <div class="input-wrap">
+                <input type="text" name="usuario" id="usuario" class="input-field" required>
+                <label>Usuario</label>
+              </div>
+              <div class="input-wrap">
+                <input type="password" name="contrasena" id="contrasena" class="input-field" required>
+                <label>Contraseña</label>
+              </div>
+              <div class="sign-btn">
+                <button type="submit" class="sign-btn">Ingresar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="carousel">
+          <div class="image-wrapper">
+            <img src="/img/LogoConsultorio.jpeg" class="image img-1 show" alt=" imagen 1">
+          </div>
+          <div class="text-slider">
+            <div class="bullets">
+              <span class="activate" data-value="1"></span>
+              <span data-value="2"> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="/js/login-animaciones.js"></script>
+</body>
+
+</html>

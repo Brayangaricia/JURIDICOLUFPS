@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="/assets/css/app.min.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+</head>
+
+<body>
+
+  {{> navbar usuario=usuarios }}
+  {{> menuhamburguer tipoCargo=tipoCargo}}
+
+  <div class="main-content">
+    <section class="section">
+      <div class="row ">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="card">
+            <div class="card-statistic-4">
+              <div class="align-items-center justify-content-between">
+                <div class="row ">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                    <div class="card-content">
+                      <h5 class="font-15">Usuarios Registrados</h5>
+                      <h2 class="mb-3 font-18">{{datos.usuariosRegistrados}}</h2>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                    <div class="banner-img">
+                      <img src="assets/img/banner/1.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="card">
+            <div class="card-statistic-4">
+              <div class="align-items-center justify-content-between">
+                <div class="row ">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                    <div class="card-content">
+                      <h5 class="font-15"> Consultas Recepcionadas</h5>
+                      <h2 class="mb-3 font-18">{{datos.consultas}}</h2>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                    <div class="banner-img">
+                      <img src="assets/img/banner/2.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="card">
+            <div class="card-statistic-4">
+              <div class="align-items-center justify-content-between">
+                <div class="row ">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                    <div class="card-content">
+                      <h5 class="font-15">Consultas Asignadas</h5>
+                      <h2 class="mb-3 font-18">1</h2>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                    <div class="banner-img">
+                      <img src="/img/ley.png"
+                        style="width: 100px; height: auto; max-width: 100%;  margin: 10px; padding: 5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);"
+                        alt="Descripción de la imagen">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="card">
+            <div class="card-statistic-4">
+              <div class="align-items-center justify-content-between">
+                <div class="row ">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
+                    <div class="card-content">
+                      <h5 class="font-15">Consultas Finalizadas</h5>
+                      <h2 class="mb-3 font-18"> 0</h2>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pl-0">
+                    <div class="banner-img">
+                      <img src="/img/1599804.png" alt=""
+                        style="width: 100px; height: auto; max-width: 100%;  margin: 10px; padding: 5px;;"
+                        alt="Descripción de la imagen finalizada">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-lg-12">
+          <div class="card ">
+            <div class="card-header">
+              <h4>Grafica de consultas registradas por dia</h4>
+              <div class="card-header-action">
+                <a href="#" class="btn btn-primary">View All</a>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-9">
+                  <canvas id="consultasChart"></canvas>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h4>Chart</h4>
+            </div>
+            <div class="card-body">
+              <div id="chart4" class="chartsh"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h4>Chart</h4>
+            </div>
+            <div class="card-body">
+              <div class="summary">
+                <div class="summary-chart active" data-tab-group="summary-tab" id="summary-chart">
+                  <div id="chart3" class="chartsh"></div>
+                </div>
+                <div data-tab-group="summary-tab" id="summary-text">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h4>Chart</h4>
+            </div>
+            <div class="card-body">
+              <div id="chart2" class="chartsh"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  {{>footer}}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- General JS Scripts -->
+  <script src="/assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <script src="/assets/js/page/index.js"></script>
+  <!-- Template JS File -->
+  <script src="/assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="/assets/js/custom.js"></script>
+
+  <script>
+    var ctx = document.getElementById('consultasChart').getContext('2d');
+    var consultasChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
+        datasets: [{
+          label: 'Consultas Registradas',
+          data: [2, 0, 0, 0, 0],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

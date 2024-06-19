@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Registrar Usuario</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="/assets/css/app.min.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  <link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
+</head>
+
+<body>
+
+  <!-- Modal de registro exitoso -->
+  <div class="modal fade" id="registroExitosoModal" tabindex="-1" role="dialog"
+    aria-labelledby="registroExitosoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registroExitosoModalLabel">Registro Exitoso</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{success}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de error -->
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error en el Registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{error}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {{>navbar}}
+  {{> menuhamburguer tipoCargo=tipoCargo}}
+
+  <div class="loader"></div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+
+
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <!-- Nombre y Apellido -->
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Registrar Usuario</h4>
+                  </div>
+                  <div class="card-body">
+                    <form id="registerForm" action="/registrarusuario" method="POST" onsubmit="return validateForm()">
+                      <!-- Dividir en dos columnas -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nombres</label>
+                            <input type="text" name="nombres" class="form-control" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Apellidos</label>
+                            <input type="text" name="apellidos" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Los demás campos en dos columnas -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Tipo De Cargo</label>
+                            <select name="tipoCargo" class="form-control form-select" required>
+                              <option value="">Seleccione...</option>
+                              <option value="Docente">Docente</option>
+                              <option value="Alumno">Alumno</option>
+                              <option value="Administrativo">Administrativo</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label>Correo</label>
+                            <input type="email" name="correo" class="form-control" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Área Del Derecho</label>
+                            <select name="areaDerecho" class="form-control form-select" required>
+                              <option value="">Seleccione...</option>
+                              <option value="Civil">Civil</option>
+                              <option value="Administrativa">Administrativa</option>
+                              <option value="Laboral">Laboral</option>
+                              <option value="Penal">Penal</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label>Código</label>
+                            <input type="number" name="codigo" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Usuario</label>
+                            <input type="text" name="usuario" class="form-control" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" name="contrasena" class="form-control" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group text-end">
+                        <button type="submit" name="registrar" class="btn btn-primary">Registrar</button>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+
+
+  {{>footer}}
+
+  <!-- General JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="/assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="/assets/js/custom.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      var successMessage = "{{success}}";
+      var errorMessage = "{{error}}";
+
+      if (successMessage) {
+        $("#registroExitosoModal").modal("show");
+      }
+
+      if (errorMessage) {
+        $("#errorModal").modal("show");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="assets/css/app.min.css">
+    <link rel="stylesheet" href="assets/bundles/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="assets/bundles/codemirror/theme/duotone-dark.css">
+    <link rel="stylesheet" href="assets/bundles/jquery-selectric/selectric.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+    {{>navbar}}
+    {{> menuhamburguer tipoCargo=tipoCargo}}
+
+
+    <div class="main-content">
+        <section class="section">
+            <div class="container mt-5">
+                <!-- Sección de Carga de Archivos -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Cargue de Archivos</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/upload" method="POST" enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label for="radicado" class="form-label">Radicado</label>
+                                <select class="form-control selectric" id="radicado" name="radicado">
+                                    <option>CP156554</option>
+                                    <option>CP54346</option>
+                                    <option>CP65646</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Seleccionar archivos</label>
+                                <input class="form-control" type="file" id="formFileMultiple" name="files[]" multiple>
+                            </div>
+
+                            <div class="form-group text-end">
+                                <button type="submit" name="registrar" class="btn btn-primary">Subir Archivo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sección de Bitácora de la Consulta -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Bitácora de la Consulta</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/consulta" method="POST">
+                            <div class="mb-3">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="asunto" name="asunto">
+                            </div>
+                            <div class="mb-3">
+                                <label for="radicado" class="form-label">Radicado</label>
+                                <select class="form-control selectric" id="radicado" name="radicado">
+                                    <option>CP156554</option>
+                                    <option>CP54346</option>
+                                    <option>CP65646</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contenido" class="form-label">Contenido</label>
+                                <textarea class="form-control summernote" id="contenido" name="contenido"></textarea>
+                            </div>
+
+
+                            <div class="form-group text-end">
+                                <button type="submit" name="registrar" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    {{>footer}}
+
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote();
+        });
+    </script>
+
+    <!-- General JS Scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="assets/bundles/summernote/summernote-bs4.js"></script>
+    <script src="assets/bundles/codemirror/lib/codemirror.js"></script>
+    <script src="assets/bundles/codemirror/mode/javascript/javascript.js"></script>
+    <script src="assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+    <script src="assets/bundles/ckeditor/ckeditor.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="assets/js/page/ckeditor.js"></script>
+    <!-- Template JS File -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport" />
+    <title>JURIDICOLUFPS - Admin Dashboard Template</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="/assets/css/app.min.css" />
+    <link rel="stylesheet" href="/assets/bundles/bootstrap-daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="/assets/bundles/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" />
+    <link rel="stylesheet" href="/assets/bundles/select2/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="/assets/bundles/jquery-selectric/selectric.css" />
+    <link rel="stylesheet" href="/assets/bundles/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <link rel="stylesheet" href="/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <style>
+        /* Estilos para el encabezado */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #f2f2f2;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 20%;
+        }
+
+        .logos img {
+            max-width: 100px;
+            /* Ajusta este valor según el tamaño que desees */
+            height: auto;
+        }
+
+        .right-logo {
+            margin-left: auto;
+        }
+
+        .titulo-central {
+            text-align: center;
+            width: 60%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            /* Espacio entre las filas */
+        }
+
+        .column {
+            width: calc(33.33% - 20px);
+            /* Calculamos el ancho de cada columna */
+            margin-bottom: 20px;
+            /* Espacio entre las columnas */
+            padding: 0 10px;
+            /* Espacio interno de cada columna */
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            /* Espacio entre cada etiqueta y su respectivo campo */
+        }
+
+        input,
+        select {
+            width: 100%;
+            /* Ancho del 100% para todos los inputs y selects */
+            padding: 8px;
+            /* Espacio interno */
+            box-sizing: border-box;
+            /* Incluir padding y border en el ancho total */
+            display: block;
+            /* Para asegurar que cada input esté en una línea */
+            margin-top: 5px;
+            /* Espacio superior entre inputs y selects */
+        }
+
+        label {
+            display: block;
+            /* Para asegurar que cada label esté en una línea */
+            margin-bottom: 5px;
+            /* Espacio inferior entre etiquetas */
+        }
+
+        h6 {
+
+            margin-top: -25px !important;
+            padding-top: 0px !important;
+        }
+
+        .contenedor-columnas {
+            display: flex;
+            justify-content: center;
+            /* Centrar horizontalmente */
+        }
+
+        .columna {
+            margin-right: 20px;
+            /* Espacio entre columnas */
+        }
+
+        .campo {
+            margin-bottom: 20px;
+            width: 100%;
+            /* Ancho de cada campo */
+        }
+
+        .inputs {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid #ccc;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* Estilos personalizados para los elementos de formulario */
+        div {
+            margin-bottom: 1em;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 0.5em;
+            box-sizing: border-box;
+            overflow: hidden;
+            /* Ocultar la barra de desplazamiento */
+        }
+
+        @media print {
+
+            /* Establecer márgenes internos para el contenido principal */
+            .main-content {
+                padding: 10px;
+                /* Puedes ajustar este valor según sea necesario */
+            }
+
+
+
+            /* Mover la sección "Recepcion de consultas consultorio juridico UFPS" al principio de la página */
+            #formulario {
+                margin-top: -30px;
+                width: 100%;
+                max-width: 100%;
+                padding: 2px;
+                visibility: visible;
+            }
+
+            /* Estilos para el formulario y elementos esenciales */
+            body * {
+                visibility: hidden;
+            }
+
+            /* Mostrar solo el formulario y elementos esenciales */
+            #formulario,
+            #formulario * {
+                visibility: visible;
+            }
+
+            @page {
+                size: 21.59cm 33.02cm;
+                /* Tamaño de página oficio */
+                margin: 0;
+                /* Eliminar márgenes para aprovechar todo el espacio */
+            }
+
+            /* Estilos para resetear márgenes y rellenos */
+            .card,
+            .card-body,
+            .form-group {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Ajustar estilos para adaptar al tamaño de la página */
+            #formulario {
+                width: 100%;
+                max-width: 100%;
+                padding: 2px;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            input[type="date"],
+            input[type="email"],
+            select {
+                height: 20px;
+                /* Ajusta la altura según lo necesites */
+                font-size: 12px;
+                /* Ajusta el tamaño de la fuente según sea necesario */
+                padding: 2px;
+                /* Añade espacio interno para las opciones */
+            }
+
+            button[name="registrarConsulta"],
+            input[type="file"] {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{> menuhamburguer tipoCargo=tipoCargo}} {{> navbar }}
+    <!-- Modal de registro exitoso -->
+    <div class="modal fade" id="registroExitosoModal" tabindex="-1" role="dialog"
+        aria-labelledby="registroExitosoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registroExitosoModalLabel">Registro Exitoso</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{success}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-body">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div id="formulario">
+                                        <div class="card-body">
+                                            <header>
+                                                <div class="logos">
+                                                    <img src="/img/LogoConsultorio.jpeg" alt="Logo 1" />
+                                                </div>
+                                                <div class="titulo-central">
+                                                    <br><br>
+                                                    <h6>RECEPCIÓN DE CONSULTA</h6>
+                                                    <br>
+                                                    <h6>CONSULTORIO JURÍDICO</h6>
+                                                    <br>
+                                                    <h6>UNIVERSIDAD FRANCISCO DE PAULA SANTANDER</h6>
+                                                    <br>
+                                                </div>
+                                                <div class="logos">
+                                                    <img src="/img/loguis.jpg" alt="Logo 2" class="right-logo" />
+                                                </div>
+                                            </header>
+
+                                            <form action="/registrarconsulta" method="POST" id="FormRegistrarConsulta">
+                                                <input type="hidden" name="idEstudianteRecepciona"
+                                                    id="idEstudianteRecepciona" />
+                                                <input type="hidden" name="idAccionante" id="idAccionante" />
+                                                <input type="hidden" name="idAccionado" id="idAccionado" />
+
+                                                <input type="hidden" name="idSolicitante" id="idSolicitante" />
+
+                                                <div style="display: flex;">
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <div class="form-group">
+                                                            <label for="radicado">Radicado</label>
+                                                            <input type="text" name="radicado" />
+                                                        </div>
+                                                    </div>
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <div class="form-group">
+                                                            <label for="fechaRecepcion">Fecha de Recepción</label>
+                                                            <input type="text" class=" datepicker" name="fechaRecepcion"
+                                                                required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- Datos del Solicitante -->
+                                                <h6>Datos Básicos del Solicitante</h6>
+
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <!-- Primer grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="papellido">Primer Apellido</label>
+                                                            <input type="text" name="papellido" id="papellido" required
+                                                                tabindex="1" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                                                            <input type="date" name="fechaNacimiento"
+                                                                id="fechaNacimiento" required tabindex="4" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="tipoIdentificacion">Tipo ID</label>
+                                                            <select name="tipoIdentificacion" id="tipoIdentificacion"
+                                                                required tabindex="7">
+                                                                <option value="">Seleccione...</option>
+                                                                <option value="C.C">C.C</option>
+                                                                <option value="Cédula Extranjera">Cédula Extranjera
+                                                                </option>
+                                                                <option value="Pasaporte">Pasaporte</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="ciudad">Domicilio (Ciudad)</label>
+                                                            <input type="text" name="ciudad"
+                                                                id="ciudad" required tabindex="10" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="correo">Email</label>
+                                                            <input type="email" name="correo" id="correo" required
+                                                                tabindex="12" />
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="column">
+                                                        <!-- Segundo grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="sapellido">Segundo Apellido</label>
+                                                            <input type="text" name="sapellido" id="sapellido" required
+                                                                tabindex="2" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="edad">Edad</label>
+                                                            <input type="number" name="edad" id="edad" required
+                                                                tabindex="5" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="numeroIdentificacion">Número ID</label>
+                                                            <input type="number" name="numeroIdentificacion"
+                                                                id="numeroIdentificacion" required tabindex="8" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="direccionActual">Direccion</label>
+                                                            <input type="text" name="direccionActual"
+                                                                id="direccionActual" required tabindex="10" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="discapacidad">Discapacidad</label>
+                                                            <select name="discapacidad" id="discapacidad" required
+                                                                tabindex="13">
+                                                                <option value="">Seleccione..</option>
+                                                                <option value="Ninguna">Ninguna</option>
+                                                                <option value="Fisica">Discapacidad física</option>
+                                                                <option value="Intelectual">Discapacidad intelectual
+                                                                </option>
+                                                                <option value="Mental">Discapacidad mental</option>
+                                                                <option value="Psicosocial">Discapacidad psicosocial
+                                                                </option>
+                                                                <option value="Multiple">Discapacidad múltiple</option>
+                                                                <option value="Sensorial">Discapacidad sensorial
+                                                                </option>
+                                                                <option value="Auditiva">Discapacidad auditiva</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="column">
+                                                        <!-- Tercer grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="nombre">Nombre Completo</label>
+                                                            <input type="text" name="nombre" id="nombre" required
+                                                                tabindex="3" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="lugarNacimiento">Lugar de Nacimiento</label>
+                                                            <input type="text" name="lugarNacimiento"
+                                                                id="lugarNacimiento" required tabindex="6" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="genero">Género</label>
+                                                            <select name="genero" id="genero" required tabindex="9">
+                                                                <option value="">Seleccione...</option>
+                                                                <option value="Masculino">Masculino</option>
+                                                                <option value="Femenino">Femenino</option>
+                                                                <option value="Otro">Otro</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="celular">Celular</label>
+                                                            <input type="number" name="celular" id="celular" required
+                                                                tabindex="11" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="vulnerabilidad">Vulnerabilidad</label>
+                                                            <select name="vulnerabilidad" id="vulnerabilidad" required
+                                                                tabindex="14">
+                                                                <option value="">Seleccione...</option>
+                                                                <option value="Ninguna">Ninguna</option>
+                                                                <option value="PersonaConDiscapacidad">Persona con
+                                                                    Discapacidad</option>
+                                                                <option value="GruposEtnicos">Grupos étnicos</option>
+                                                                <option value="PrivadosDeLaLibertad">Personas privadas
+                                                                    de la libertad</option>
+                                                                <option value="MujerCabezaDeHogar">Mujer cabeza de hogar
+                                                                </option>
+                                                                <option value="Reintegrados">Reintegrados</option>
+                                                                <option value="AdultoMayor">Adulto mayor</option>
+                                                                <option value="VictimaDelConflicto">Víctima del
+                                                                    conflicto</option>
+                                                                <option value="DesplazadosPorViolencia">Población
+                                                                    desplazada por violencia</option>
+                                                                <option value="DesplazadosPorFenomenoNatural">Población
+                                                                    desplazada por fenómeno natural</option>
+                                                                <option value="Otro">Otro</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <h6 style="">Caracterización Socioeconómica</h6>
+
+                                                <!-- Caracterización Socioeconómica  -->
+
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <!-- Primer grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="nivelEstudio">Nivel de estudio</label>
+                                                            <select name="nivelEstudio" required tabindex="14">
+                                                                <option value="" disabled selected>Seleccione su nivel
+                                                                    de estudio</option>
+                                                                <option value="primaria"> Ninguno</option>
+                                                                <option value="primaria">Primaria</option>
+                                                                <option value="secundaria">Secundaria</option>
+                                                                <option value="tecnico">Técnico</option>
+                                                                <option value="tecnologo">Tecnólogo</option>
+                                                                <option value="universitario">Universitario</option>
+                                                                <option value="posgrado">Posgrado</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="actividadEconomica">Actividad económica</label>
+                                                            <select name="actividadEconomica" required tabindex="18">
+                                                                <option value="" disabled selected>Seleccione su
+                                                                    actividad económica</option>
+                                                                <option value="Agricultura">Agricultura</option>
+                                                                <option value="Manufactura">Manufactura</option>
+                                                                <option value="Comercio">Comercio</option>
+                                                                <option value="Construccion">Construcción</option>
+                                                                <option value="Servicios">Servicios</option>
+                                                                <option value="Tecnologia">Tecnología</option>
+                                                                <option value="Educacion">Educación</option>
+                                                                <option value="Salud">Salud</option>
+                                                                <option value="Otro">Otro</option>
+                                                            </select>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="column">
+                                                        <!-- Segundo grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="estrato">Estrato</label>
+                                                            <select name="estrato" required tabindex="15">
+                                                                <option value=""> Seleccione...</option>
+                                                                <option value="Estrato 1">Estrato 1</option>
+                                                                <option value="Estrato 2">Estrato 2</option>
+                                                                <option value="Estrato 3">Estrato 3</option>
+                                                                <option value="Estrato 4">Estrato 4</option>
+                                                                <option value="Estrato 5">Estrato 5</option>
+                                                                <option value="Estrato 6">Estrato 6</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="oficio">Oficio</label>
+                                                            <select name="oficio" required tabindex="17">
+                                                                <option value="" disabled selected>Seleccione su oficio
+                                                                </option>
+                                                                <option value="ingeniero">Ingeniero</option>
+                                                                <option value="salud">Salud</option>
+                                                                <option value="artes">Artes</option>
+                                                                <option value="ama_de_casa">Ama de casa</option>
+                                                                <option value="educacion">Educación</option>
+                                                                <option value="administracion">Administración</option>
+                                                                <option value="tecnologia">Tecnología</option>
+                                                                <option value="comercio">Comercio</option>
+                                                                <option value="construccion">Construcción</option>
+                                                                <option value="servicios">Servicios</option>
+                                                                <option value="otro">Otro</option>
+                                                            </select>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="column">
+                                                        <!-- Tercer grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="sisben">Sisben</label>
+                                                            <select name="sisben" required tabindex="16">
+                                                                <option value="">Seleccione...</option>
+                                                                <option value="Grupo A1-A5 pobreza extrema">Grupo A1-A5
+                                                                    pobreza extrema</option>
+                                                                <option value="Grupo B1-B7 pobreza moderada">Grupo B1-B7
+                                                                    pobreza moderada</option>
+                                                                <option value="Grupo C1-C18 vulnerabilidad">Grupo C1-C18
+                                                                    vulnerabilidad</option>
+                                                                <option value="Grupo D1-D21 ni pobre ni vulnerable">
+                                                                    Grupo D1-D21 ni pobre ni vulnerable</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="nivelIngresoEconomico">Nivel de ingreso
+                                                                económico</label>
+                                                            <select name="nivelIngresoEconomico" required tabindex="19">
+                                                                <option value="" disabled selected>Seleccione su nivel
+                                                                    de ingreso económico</option>
+                                                                <option value="0_salarios_minimos">0 salarios mínimos
+                                                                </option>
+                                                                <option value="0-1_salarios_minimos">Entre 0-1 salarios
+                                                                    mínimos</option>
+                                                                <option value="1-2_salarios_minimos">Entre 1-2 salarios
+                                                                    mínimos</option>
+                                                                <option value="2-3_salarios_minimos">Entre 2-3 salarios
+                                                                    mínimos</option>
+                                                                <option value="3-4_salarios_minimos">Entre 3-4 salarios
+                                                                    mínimos</option>
+                                                                <option value="4-5_salarios_minimos">Entre 4-5 salarios
+                                                                    mínimos</option>
+                                                                <option value="5-6_salarios_minimos">Entre 5-6 salarios
+                                                                    mínimos</option>
+                                                                <option value="6-7_salarios_minimos">Entre 6-7 salarios
+                                                                    mínimos</option>
+                                                                <option value="7-8_salarios_minimos">Entre 7-8 salarios
+                                                                    mínimos</option>
+                                                                <option value="superior_a_8_salarios_minimos">Superior a
+                                                                    8 salarios mínimos</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <h6>Estudiante que recepciona</h6>
+
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <!-- Primer grupo de campos -->
+                                                        <div class="form-group">
+                                                            <label for="apellidosRecepciona">Apellidos</label>
+                                                            <input type="text" name="apellidosRecepciona" required
+                                                                tabindex="20" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="correoRecepciona">Correo</label>
+                                                            <input type="email" name="correoRecepciona" required
+                                                                tabindex="23" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="column">
+                                                        <!-- Segundo grupo de campos -->
+
+                                                        <div class="form-group">
+                                                            <label for="nombreRecepciona">Nombre Completo</label>
+                                                            <input type="text" name="nombreRecepciona" required
+                                                                tabindex="21" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="celularRecepciona"> Celular</label>
+                                                            <input type="text" name="celularRecepciona" required
+                                                                tabindex="24" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="column">
+                                                        <!-- Tercer grupo de campos -->
+
+                                                        <div class="form-group">
+                                                            <label for="codigoRecepciona">Código</label>
+                                                            <input type="text" name="codigoRecepciona" required
+                                                                tabindex="22" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h6>Datos Básicos de las partes</h6>
+                                                <br>
+                                                <h6>Accionante</h6>
+
+                                                <div style="display: flex;">
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <div class="form-group">
+                                                            <label for="nombreAccionante">Nombre del accionante</label>
+                                                            <input type="text" name="nombreAccionante" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="correoAccionante">Correo</label>
+                                                            <input type="email" name="correoAccionante" />
+                                                        </div>
+                                                    </div>
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <div class="form-group">
+                                                            <label for="telefonoAccionante">Teléfono</label>
+                                                            <input type="number" name="telefonoAccionante" required />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="direccionAccionante">Dirección</label>
+                                                            <input type="text" name="direccionAccionante" required />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h6>Accionado</h6>
+                                                <div style="display: flex;">
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <div class="form-group">
+                                                            <label for="nombreAccionado">Nombre del accionante</label>
+                                                            <input type="text" name="nombreAccionado" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="correoAccionado">Correo</label>
+                                                            <input type="email" name="correoAccionado" />
+                                                        </div>
+                                                    </div>
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <div class="form-group">
+                                                            <label for="telefonoAccionado">Teléfono</label>
+                                                            <input type="number" name="telefonoAccionado" required />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="direccionAccionado">Dirección</label>
+                                                            <input type="text" name="direccionAccionado" required />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h6>Consulta</h6>
+                                                <div>
+                                                    <label for="hechosInput">Hechos relevantes</label>
+                                                    <textarea id="hechosInput" name="hechos" class="auto-numbering"
+                                                        required>1.</textarea>
+                                                </div>
+                                                <div>
+                                                    <label for="pretensionesInput">Pretensiones</label>
+                                                    <textarea id="pretensionesInput" name="pretensiones"
+                                                        class="auto-numbering" required>1.</textarea>
+                                                </div>
+                                                <div>
+                                                    <label for="observacionesInput">Observaciones a tener en cuenta para
+                                                        el abordaje del caso</label>
+                                                    <textarea id="observacionesInput" name="observaciones"
+                                                        class="auto-numbering" required>1.</textarea>
+                                                </div>
+
+                                                <div>
+                                                    <label for="archivoPDF"></label>
+                                                    <input type="file" name="archivoPDF" id="archivoPDF" accept=".pdf"
+                                                        required />
+                                                </div>
+
+                                                <input type="text" hidden name="archivoNamePDF" id="archivoNamePDF" />
+                                                <input type="text" hidden name="archivoBase64PDF"
+                                                    id="archivoBase64PDF" />
+
+                                                <p
+                                                    style="font-size: 10px; text-align: center; font-weight: bold; color: #000000; line-height: 1;">
+                                                    COMPROMISOS ADQUIRIDOS POR EL USUARIO AL SOLICITAR EL SERVICIO DE
+                                                    ASISTENCIA JURIDICA AL CONSULTORIO JURIDICO <br>
+                                                    DE LA UNIVERSIDAD FRANCISCO DE PAULA SANTANDER.
+                                                </p>
+
+                                                <p style="font-size: 10px; text-align: justify;">
+                                                    Entre los suscritos, Aura
+                                                    Yulianath Balaguera Rodríguez identificada con cedula de ciudadanía
+                                                    No. de Cúcuta, quien en su condición de Directora General actúa en
+                                                    representación del Consultorio Jurídico de la
+                                                    Universidad Francisco de Paula Santander, quien adelante se
+                                                    denominará EL CONSULTORIO, y
+                                                    _________________________________________, identificado(a) con
+                                                    cedula de ciudadanía No.
+                                                    ________________ de ____________ quien en adelante se denominará EL
+                                                    USUARIO, hemos decidido suscribir el siguiente compromiso respecto
+                                                    de la prestación del servicio de asistencia
+                                                    jurídica: PRIMERA: El USUARIO tendrá como deberes con el CONSULTORIO
+                                                    los siguientes: 1. Tratar con el debido respeto al personal que
+                                                    atiende su asunto. 2. Comprometerse con las
+                                                    obligaciones y el trámite judicial o administrativo que su asunto
+                                                    conlleve. 3. Relacionar en forma clara y precisa su dirección,
+                                                    correo electrónico y número telefónico donde se le
+                                                    pueda encontrar rápidamente, sea del lugar de residencia o trabajo.
+                                                    4. Atender puntualmente las citas y gestiones que demande la
+                                                    atención del asunto. 5. Colaborar diligentemente con la
+                                                    tramitación del asunto e informar de manera veraz y oportuna los
+                                                    datos necesarios para la elaboración de la demanda o de cualquier
+                                                    tipo de memorial que lo requiera. 6. Entregar toda la
+                                                    información de la contraparte, ya sean datos de notificación u
+                                                    otros, que se requiere para el adelantamiento de actuaciones. 7.
+                                                    Informar cualquier novedad o circunstancia que modifique
+                                                    o cambie el trámite judicial o administrativo. 8. Aportar los
+                                                    documentos necesarios para el trámite de su proceso o asunto. 9.
+                                                    Sufragar los gastos que demande la tramitación de su
+                                                    asunto. 10. Dar cuenta de su situación económica cada vez que le sea
+                                                    solicitado, a fin de determinar si puede seguir disfrutando de los
+                                                    servicios del Consultorio. SEGUNDA: La entrega
+                                                    de documentos solicitados o de la información requerida que habla la
+                                                    CLAUSULA PRIMERA deberá ser resuelta por el usuario en el término de
+                                                    5 días hábiles posteriores a su solicitud. De
+                                                    no ser atendido el requerimiento en el término establecido se
+                                                    entenderá como falta de interés del USUARIO y se procederá con el
+                                                    archivo del asunto. TERCERA: El USUARIO no tendrá que
+                                                    pagar suma alguna por la asesoría judicial o legal que le preste el
+                                                    CONSULTORIO, toda vez que es la prestación de un servicio gratuito,
+                                                    pero deberá correr por su cuenta y riesgo con
+                                                    los gastos causados con la actuación judicial o administrativa
+                                                    encomendada, tales como: 1. Fotocopias de todos los documentos
+                                                    necesarios para adelantar el trámite respectivo. 2.
+                                                    Cualquier publicación en radio o prensa. 3. Pago de honorarios de
+                                                    los auxiliares de la justicia, tales como: peritos, avaluadores,
+                                                    curadores ad litem, etc. 4. Gastos de notificación,
+                                                    condenas en costas y agencias en derecho, de derechos notariales,
+                                                    rentas y registro, así como de sanciones o multas anta la DIAN o
+                                                    Autoridades Administrativas o Judiciales y cualquier
+                                                    otro gasto que sea necesario para el cabal desarrollo del trámite
+                                                    judicial. 5. Los demás a los que haya lugar. CUARTA: El USUARIO es
+                                                    el responsable de la radicación ante las entidades
+                                                    respectivas de los memoriales, oficios y demás documentos que se
+                                                    realicen dentro de su asunto a su nombre. Debiendo informar el
+                                                    radicado asignado o entregando copia del mismo para el
+                                                    seguimiento y gestión correspondiente, de haber lugar a la misma.
+                                                    TERCERA: Queda establecido por acuerdo de las partes, que si por
+                                                    cualquier razón imputable a negligencia, desidia o
+                                                    falta de interés, el USUARIO incumple cualquiera de los deberes
+                                                    establecidos en la CLÁUSULA PRIMERA del presente compromiso, una vez
+                                                    sea verificada por el Consultorio Jurídico, se le
+                                                    comunicará mediante el medio más expedito la terminación de su
+                                                    proceso, solicitud o consulta, de manera unilateral y anticipada.
+                                                    Para constancia se firma por las partes contratantes,
+                                                    en la ciudad de San José de Cúcuta, a los _____ días del mes de
+                                                    ______________ de 2024. CONSULTORIO JURIDICO Aura Yulianath
+                                                    Balaguera Rodríguez Directora General del Consultorio
+                                                    Juridico de la Universidad Francisco de Paula Santander USUARIO(A)
+                                                    Nombre: C.C No.
+                                                </p>
+
+                                                <div class="contenedor-columnas">
+                                                    <div class="columna">
+                                                        <div class="campo">
+                                                            <label for="firmaEstudiante">Firma del Estudiante:</label>
+                                                            <input class="inputs" type="text" id="firmaEstudiante"
+                                                                name="firmaEstudiante" />
+                                                        </div>
+                                                        <div class="campo">
+                                                            <input class="input" type="text" id="firmaEstudiante"
+                                                                name="firmaEstudiante"
+                                                                placeholder="nombre del estudiante"
+                                                                style="border: none; outline: none;" />
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="columna">
+                                                        <div class="campo">
+                                                            <label for="firmaUsuario">Firma del Usuario:</label>
+                                                            <input class="inputs" type="text" id="firmaUsuario"
+                                                                name="firmaUsuario" />
+                                                        </div>
+                                                        <div class="campo">
+                                                            <input class="input" type="text" id="firmaEstudiante"
+                                                                name="firmaEstudiante" placeholder="nombre del usuario"
+                                                                style="border: none; outline: none;" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Botón de registro -->
+                                                <div class="form-group text-end">
+                                                    <button type="submit" name="registrarConsulta"
+                                                        class="btn btn-primary">Registrar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{>footer}}
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Seleccionar todos los elementos textarea
+            const textareas = document.querySelectorAll("textarea");
+
+            // Añadir un evento de entrada a cada textarea
+            textareas.forEach((textarea) => {
+                textarea.addEventListener("input", function () {
+                    // Establecer la altura del textarea en 'auto' para calcular la altura correcta
+                    this.style.height = "auto";
+                    // Establecer la altura del textarea en su scrollHeight para ajustar la altura
+                    this.style.height = this.scrollHeight + "px";
+                });
+            });
+
+            document.getElementById("archivoPDF").addEventListener("change", function (event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    const base64String = e.target.result.split(',')[1];
+
+                    const inputNamePdf = document.getElementById('archivoNamePDF');
+                    const inputBase64Pdf = document.getElementById('archivoBase64PDF');
+
+                    inputNamePdf.value = file.name;
+                    inputBase64Pdf.value = base64String;
+                }
+
+                reader.readAsDataURL(file);
+            });
+
+        });
+    </script>
+
+    <script>
+        // Selecciona todos los textareas con la clase "auto-numbering"
+        const textareas = document.querySelectorAll('.auto-numbering');
+
+        textareas.forEach(textarea => {
+            textarea.addEventListener('keydown', function (event) {
+                // Verifica si la tecla presionada es "Enter"
+                if (event.key === 'Enter') {
+                    // Evita que se añada un salto de línea en el textarea
+                    event.preventDefault();
+
+                    // Obtiene el valor actual del textarea
+                    let currentValue = this.value;
+
+                    // Divide el valor actual en líneas
+                    const lines = currentValue.split('\n');
+
+                    // Verifica si el textarea está vacío o tiene solo espacios en blanco
+                    if (currentValue.trim() === '') {
+                        // Si está vacío o tiene solo espacios en blanco, inicializa con el número 1
+                        currentValue = '1.';
+                    } else {
+                        // Encuentra el número actual en la última línea
+                        const lastLine = lines[lines.length - 1];
+                        const match = lastLine.match(/^\d+\./);
+
+                        // Si la última línea ya tiene un número, aumenta en uno
+                        if (match) {
+                            const currentNumber = parseInt(match[0]);
+                            const nextNumber = currentNumber + 1;
+                            lines.push(nextNumber + '.');
+                        } else {
+                            // Si no hay un número en la última línea, añade el número 1
+                            lines.push('2.');
+                        }
+
+                        // Actualiza el valor del textarea con las líneas actualizadas
+                        currentValue = lines.join('\n');
+                    }
+
+                    // Actualiza el valor del textarea
+                    this.value = currentValue;
+
+                    // Pone el cursor al final del textarea
+                    this.scrollTop = this.scrollHeight;
+                }
+            });
+        });
+    </script>
+    {{#if successMessage}}
+    <script>
+        $(document).ready(function () {
+            $("#registroExitosoModal").modal("show");
+        });
+    </script>
+    {{/if}}
+
+
+    <!-- General JS Scripts -->
+    <script src="/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="/assets/bundles/cleave-js/dist/cleave.min.js"></script>
+    <script src="/assets/bundles/cleave-js/dist/addons/cleave-phone.us.js"></script>
+    <script src="/assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+    <script src="/assets/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="/assets/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <script src="/assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="/assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="/assets/bundles/select2/dist/js/select2.full.min.js"></script>
+    <script src="/assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="/assets/js/page/forms-advanced-forms.js"></script>
+    <!-- Template JS File -->
+    <script src="/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="/assets/js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+    <style>
+        /* Estilos para el archivo Excel exportado */
+        table.dataTable {
+            border-collapse: collapse !important;
+            width: 100% !important;
+        }
+
+        table.dataTable th,
+        table.dataTable td {
+            border: 1px solid #ddd !important;
+            padding: 8px !important;
+            text-align: left !important;
+        }
+
+        table.dataTable th {
+            background-color: #f2f2f2 !important;
+            color: #000 !important;
+        }
+    </style>
+
+
+    {{>navbar}}
+    {{> menuhamburguer tipoCargo=tipoCargo}}
+
+    <div class="main-content">
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Recepción de consultas diarias</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-form">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover" id="tableExport">
+                                        <thead>
+                                            <tr>
+                                                <th>Radicado</th>
+                                                <th>Fecha de recepción....................</th>
+                                                <th>Primer apellido solicitante</th>
+                                                <th>Segundo apellido solicitante</th>
+                                                <th>Nombre completo</th>
+                                                <th>Tipo ID</th>
+                                                <th>Número ID</th>
+                                                <th>Género</th>
+                                                <th>Fecha Nacimiento.........</th>
+                                                <th>Edad</th>
+                                                <th>Lugar de nacimiento</th>
+                                                <th>Discapacidad</th>
+                                                <th>Vulnerabilidad</th>
+                                                <th>Direccion de residencia</th>
+                                                <th>Email</th>
+                                                <th>Celular</th>
+                                                <th>Actividad economica</th>
+                                                <th>Estrato</th>
+                                                <th>Sisben</th>
+
+                                                <th>Nombre estudiante recepciona</th>
+                                                <th>apellido estudiante recepciona</th>
+                                                <th>Codigo estudiante recepciona</th>
+                                                <th>Correo estudiante recepciona</th>
+                                                <th>Celular estudiante recepciona</th>
+                                                <th>Nombre accionante</th>
+                                                <th>Telefono accionante</th>
+                                                <th>Correo accionante</th>
+                                                <th>Direccion accionante</th>
+                                                <th>Nombre accionado</th>
+                                                <th>Telefono accionado</th>
+                                                <th>Correo accionado</th>
+                                                <th>Direccion accionado</th>
+                                                <th>Hechos relevantes..................................</th>
+                                                <th>Pretensiones..................................</th>
+                                                <th>Observaciones..................................</th>
+                                                <th>Asignar Radicado</th>
+                                                <th>Ver PDF</th>
+
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each usuarios}}
+                                            <tr>
+
+                                                <td>{{radicado}}</td>
+                                                <td>{{fechaRecepcion}}</td>
+                                                <td>{{sapellidoSolicitante}}</td>
+                                                <td>{{sapellidoSolicitante}}</td>
+                                                <td>{{nombreSolicitante}}</td>
+                                                <td>{{tipoIdentificacion}}</td>
+                                                <td>{{numeroIdentificacion}}</td>
+                                                <td>{{genero}}</td>
+                                                <td>{{fechaNacimiento}}</td>
+                                                <td>{{edad}}</td>
+                                                <td>{{lugarNacimiento}}</td>
+                                                <td>{{discapacidad}}</td>
+                                                <td>{{vulnerabilidad}}</td>
+                                                <td>{{direccionActual}}</td>
+                                                <td>{{correo}}</td>
+                                                <td>{{celular}}</td>
+                                                <td>{{actividadeconomica}}</td>
+                                                <td>{{estrato}}</td>
+                                                <td>{{sisben}}</td>
+
+
+                                                <td>{{nombreRecepciona}}</td>
+                                                <td>{{apellidosRecepciona}}</td>
+                                                <td>{{codigoRecepciona}}</td>
+                                                <td>{{correoRecepciona}}</td>
+                                                <td>{{celularRecepciona}}</td>
+
+                                                <td>{{nombreAccionante}}</td>
+                                                <td>{{telefonoAccionante}}</td>
+                                                <td>{{correoAccionante}}</td>
+                                                <td>{{direccionAccionante}}</td>
+
+                                                <td>{{nombreAccionado}}</td>
+                                                <td>{{telefonoAccionado}}</td>
+                                                <td>{{correoAccionado}}</td>
+                                                <td>{{direccionAccionado}}</td>
+
+                                                <td>{{hechos}}</td>
+                                                <td>{{pretensiones}}</td>
+                                                <td>{{observaciones}}</td>
+
+
+
+
+                                                <td>
+                                                    <button class="btn btn-primary btn-editar"
+                                                        data-id="{{id}}">Actualizar</button>
+                                                </td>
+
+
+                                                <td>
+                                                    <a href="/verconsulta/pdf/{{id}}">Ver PDF</a>
+                                                </td>
+
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {{>footer}}
+
+    </div>
+    </div>
+
+    <div>
+        <div id="pdfContainer" style="display: none;">
+            <h3>Documento PDF</h3>
+            <iframe id="pdfViewer" width="100%" height="600px"></iframe>
+        </div>
+    </div>
+
+    <!-- Ventana modal para editar radicado -->
+    <div class="modal fade" id="modalEditarRadicado" tabindex="-1" role="dialog"
+        aria-labelledby="modalEditarRadicadoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarRadicadoLabel">Editar Radicado</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarRadicado">
+                        <input type="hidden" id="inputConsultaId" name="consultaId">
+                        <div class="form-group">
+                            <label for="inputRadicado">Nuevo Radicado:</label>
+                            <input type="text" class="form-control" id="inputRadicado" name="radicado">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnGuardarRadicado">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        document.querySelectorAll('.btnVerPDF').forEach(button => {
+            button.addEventListener('click', function () {
+                const idConsulta = this.getAttribute('data-id-consulta');
+
+                fetch(`/pdf/${idConsulta}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const pdfViewer = document.getElementById('pdfViewer');
+                        const pdfContainer = document.getElementById('pdfContainer');
+
+                        pdfViewer.src = `data:application/pdf;base64,${data.archivoBase64PDF}`;
+                        pdfContainer.style.display = 'block';
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar el PDF:', error);
+                        alert('Error al cargar el PDF');
+                    });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Abrir la ventana modal y prellenar el campo del radicado
+            $('.btn-editar').on('click', function () {
+                const idConsulta = $(this).data('id');
+                $('#inputConsultaId').val(idConsulta);
+                $('#modalEditarRadicado').modal('show');
+            });
+
+            // Enviar la solicitud de edición del radicado
+            $('#btnGuardarRadicado').on('click', function () {
+                const consultaId = $('#inputConsultaId').val();
+                const nuevoRadicado = $('#inputRadicado').val();
+
+                $.ajax({
+                    url: `/verconsultadiaria/radicado/${consultaId}`,
+                    method: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ radicado: nuevoRadicado }),
+                    success: function (response) {
+                        alert('Radicado editado correctamente');
+                        $('#modalEditarRadicado').modal('hide');
+                        location.reload(); // Recargar la página para reflejar los cambios
+                    },
+                    error: function (error) {
+                        console.error('Error:', error);
+                        alert('Error al editar el radicado');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+
+    <!-- General JS Scripts -->
+    <script src="assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <!-- Page Specific JS File -->
+    <script src="assets/bundles/datatables/datatables.min.js"></script>
+    <script src="assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/bundles/datatables/export-tables/dataTables.buttons.min.js"></script>
+    <script src="assets/bundles/datatables/export-tables/buttons.flash.min.js"></script>
+    <script src="assets/bundles/datatables/export-tables/jszip.min.js"></script>
+    <script src="assets/bundles/datatables/export-tables/pdfmake.min.js"></script>
+    <script src="assets/bundles/datatables/export-tables/vfs_fonts.js"></script>
+    <script src="assets/bundles/datatables/export-tables/buttons.print.min.js"></script>
+    <script src="assets/js/page/datatables.js"></script>
+    <!-- Template JS File -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="assets/js/custom.js"> </script>
+
+    <!-- Agrega las bibliotecas de DataTables para el filtrado y la búsqueda -->
+
+</body>
+
+</html>

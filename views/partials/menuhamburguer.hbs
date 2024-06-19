@@ -1,0 +1,159 @@
+{{#if tipoCargo}}
+{{#if (eq tipoCargo 'alumno')}}
+
+<div class="main-sidebar sidebar-style-2">
+  <aside id="sidebar-wrapper">
+    <div class="sidebar-brand">
+      <img alt="image" src="img/PP.png" class="" width="100%"
+        style="margin-bottom: 10px; border-bottom: 4px solid #ea5455;">
+    </div>
+    <ul class="sidebar-menu">
+
+      <!-- Menu específico para alumnos -->
+      <li class="menu-header">Menu Principal</li>
+      <li class="dropdown">
+        <a href="/dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+      </li>
+      </li>
+      <li class="menu-header">Modulo Alumno</li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Recepcion
+            Consulta</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/registrarconsulta">Registrar Consulta</a></li>
+          <li><a href="/verconsultadiaria">Ver Consulta Asignada</a></li>
+        </ul>
+      </li>
+      <li class="menu-header">Modulo Asignacion de consultas</li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Asignacion
+            Consulta</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/verasignacion">Ver Asignacion</a></li>
+        </ul>
+      </li>
+      <li class="menu-header">Modulo Desarrollo De Consultas</li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Desarrollo
+            Consulta</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/seguimiento">Seguimiento Consulta</a></li>
+          <li><a href="#">Actualizar Seguimiento</a></li>
+          <li><a href="/verseguimiento">Ver Seguimiento</a></li>
+        </ul>
+      </li>
+      </li>
+
+      <li class="menu-header">Modulo Liquidadores</li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i
+            data-feather="user-check"></i><span>Liquidadores</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Realizar Liquidacion</a></li>
+        </ul>
+      </li>
+
+      {{/if}}
+      {{#if (eq tipoCargo 'docente')}}
+
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <img alt="image" src="img/PP.png" class="" width="100%"
+              style="margin-bottom: 10px; border-bottom: 4px solid #ea5455;">
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Menu Principal</li>
+            <li class="dropdown">
+              <a href="/dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
+
+            <li class="menu-header">Modulo Docente</li>
+            <!-- Menu específico para docentes -->
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="user-check"></i><span>Asignacion
+                  Consulta</span></a>
+              <ul class="dropdown-menu">
+
+                <li><a href="/verasignacion">Ver Asignacion</a></li>
+
+              </ul>
+            </li>
+            {{/if}}
+            {{#if (eq tipoCargo 'administrativo')}}
+
+            <div class="main-sidebar sidebar-style-2">
+              <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                  <img alt="image" src="img/PP.png" class="" width="100%"
+                    style="margin-bottom: 10px; border-bottom: 4px solid #ea5455;">
+                </div>
+                <ul class="sidebar-menu">
+                  <li class="menu-header">Menu Principal</li>
+                  <li class="dropdown">
+                    <a href="/dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+                  </li>
+
+                  <li class="menu-header">Modulo Usuarios</li>
+                  <li class="dropdown">
+                    <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="user-check"></i><span>Usuario</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/registrarusuario">Registrar Usuarios</a></li>
+                      <li><a href="editarusuario">Actualizar Usuarios</a></li>
+                      <li><a href="/verusuario">Ver Usuarios</a></li>
+                    </ul>
+                  </li>
+                  </li>
+                  <li class="menu-header">..Modulo Recepcion De Consultas</li>
+                  <li class="dropdown">
+                    <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="user-check"></i><span>Recepcion Consulta</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/registrarconsulta">Registrar Consulta</a></li>
+                      <li><a href="/verconsultadiaria">Ver Consulta Diaria</a></li>
+                      <li><a href="/verconsulta">Ver Consulta</a></li>
+                    </ul>
+                  </li>
+                  </li>
+                  <li class="menu-header">Modulo Asignacion De Consultas</li>
+                  <li class="dropdown">
+                    <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="user-check"></i><span>Asignacion Consulta</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/asignarconsulta">Registrar Asignacion</a></li>
+                      <li><a href="#">Actualizar Asignacion</a></li>
+                      <li><a href="/verasignacion">Ver Asignacion</a></li>
+                    </ul>
+                  </li>
+                  </li>
+                  </li>
+                  <li class="menu-header">Modulo Desarrollo De Consultas</li>
+                  <li class="dropdown">
+                    <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="user-check"></i><span>Desarrollo Consulta</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/seguimiento">Seguimiento Consulta</a></li>
+                      <li><a href="#">Actualizar Seguimiento</a></li>
+                      <li><a href="/verseguimiento">Ver Seguimiento</a></li>
+                    </ul>
+                  </li>
+                  </li>
+                  </li>
+                  <li class="menu-header">Modulo Liquidadores</li>
+                  <li class="dropdown">
+                    <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="user-check"></i><span>Liquidadores</span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Realizar Liquidacion</a></li>
+                    </ul>
+                  </li>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            {{/if}}
+            {{/if}}
+          </ul>
+        </aside>
+      </div>

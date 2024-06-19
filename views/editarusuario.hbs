@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Editar Usuario</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
+</head>
+
+<body>
+    {{> navbar}}
+    {{> menuhamburguer tipoCargo=tipoCargo}}
+
+    <div class="main-content">
+        <section class="section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Editar Usuario</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="editForm">
+                                <input type="hidden" id="editId" name="id" value="{{usuario.id}}">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="editNombres">Nombres:</label>
+                                            <input type="text" id="editNombres" name="nombres" class="form-control"
+                                                value="{{usuario.nombres}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="editApellidos">Apellidos:</label>
+                                            <input type="text" id="editApellidos" name="apellidos" class="form-control"
+                                                value="{{usuario.apellidos}}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="editTipoCargo">Tipo De Cargo:</label>
+                                            <select id="editTipoCargo" name="tipoCargo"
+                                                class="form-control form-select">
+                                                <option value="">Seleccione...</option>
+                                                <option value="Docente" {{#ifCond usuario.tipoCargo '==' 'Docente'
+                                                    }}selected{{/ifCond}}>Docente</option>
+                                                <option value="Alumno" {{#ifCond usuario.tipoCargo '==' 'Alumno'
+                                                    }}selected{{/ifCond}}>Alumno</option>
+                                                <option value="Administrativo" {{#ifCond
+                                                    usuario.tipoCargo '==' 'Administrativo' }}selected{{/ifCond}}>
+                                                    Administrativo</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editCorreo">Correo Electrónico:</label>
+                                            <input type="email" id="editCorreo" name="correo" class="form-control"
+                                                value="{{usuario.correo}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="editAreaDerecho">Área Del Derecho:</label>
+                                            <select id="editAreaDerecho" name="areaDerecho"
+                                                class="form-control form-select">
+                                                <option value="">Seleccione...</option>
+                                                <option value="Civil" {{#ifCond usuario.areaDerecho '==' 'Civil'
+                                                    }}selected{{/ifCond}}>Civil</option>
+                                                <option value="Administrativa" {{#ifCond
+                                                    usuario.areaDerecho '==' 'Administrativa' }}selected{{/ifCond}}>
+                                                    Administrativa</option>
+                                                <option value="Laboral" {{#ifCond usuario.areaDerecho '==' 'Laboral'
+                                                    }}selected{{/ifCond}}>Laboral</option>
+                                                <option value="Penal" {{#ifCond usuario.areaDerecho '==' 'Penal'
+                                                    }}selected{{/ifCond}}>Penal</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editCodigo">Código:</label>
+                                            <input type="text" id="editCodigo" name="codigo" class="form-control"
+                                                value="{{usuario.codigo}}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="editUsuario">Usuario:</label>
+                                            <input type="text" id="editUsuario" name="usuario" class="form-control"
+                                                value="{{usuario.usuario}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="editContrasena">Contraseña:</label>
+                                            <input type="password" id="editContrasena" name="contrasena"
+                                                class="form-control" value="{{usuario.contrasena}}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-end">
+                                    <button type="submit" name="registrar" class="btn btn-primary">Guardar
+                                        Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {{> footer}}
+
+    <script>
+        document.getElementById('editForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const userId = document.getElementById('editId').value;
+            const userData = {
+                nombres: document.getElementById('editNombres').value,
+                apellidos: document.getElementById('editApellidos').value,
+                tipoCargo: document.getElementById('editTipoCargo').value,
+                correo: document.getElementById('editCorreo').value,
+                areaDerecho: document.getElementById('editAreaDerecho').value,
+                codigo: document.getElementById('editCodigo').value,
+                usuario: document.getElementById('editUsuario').value,
+                contrasena: document.getElementById('editContrasena').value,
+            };
+
+            fetch(`/verusuario/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Usuario actualizado exitosamente');
+                        window.location.href = '/verusuario';
+                    } else {
+                        alert('Error al actualizar el usuario');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al actualizar el usuario');
+                });
+        });
+    </script>
+
+    <!-- General JS Scripts -->
+    <script src="/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <!-- Page Specific JS File -->
+    <!-- Template JS File -->
+    <script src="/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="/assets/js/custom.js"></script>
+</body>
+
+</html>
