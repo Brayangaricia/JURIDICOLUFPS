@@ -236,9 +236,10 @@
             </div>
         </div>
     </div>
+
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
-            <div class="navbar-bg"></div>
+
 
             <!-- Main Content -->
             <div class="main-content">
@@ -279,14 +280,14 @@
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="radicado">Radicado</label>
-                                                            <input type="text" name="radicado" />
+                                                            <input type="text" name="radicado" tabindex="1" />
                                                         </div>
                                                     </div>
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="fechaRecepcion">Fecha de Recepción</label>
                                                             <input type="text" class=" datepicker" name="fechaRecepcion"
-                                                                required>
+                                                                tabindex="2" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -301,17 +302,17 @@
                                                         <div class="form-group">
                                                             <label for="papellido">Primer Apellido</label>
                                                             <input type="text" name="papellido" id="papellido" required
-                                                                tabindex="1" />
+                                                                tabindex="3" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="fechaNacimiento">Fecha de Nacimiento</label>
                                                             <input type="date" name="fechaNacimiento"
-                                                                id="fechaNacimiento" required tabindex="4" />
+                                                                id="fechaNacimiento" required tabindex="6" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="tipoIdentificacion">Tipo ID</label>
                                                             <select name="tipoIdentificacion" id="tipoIdentificacion"
-                                                                required tabindex="7">
+                                                                required tabindex="9">
                                                                 <option value="">Seleccione...</option>
                                                                 <option value="C.C">C.C</option>
                                                                 <option value="Cédula Extranjera">Cédula Extranjera
@@ -321,14 +322,14 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="ciudad">Domicilio (Ciudad)</label>
-                                                            <input type="text" name="ciudad"
-                                                                id="ciudad" required tabindex="10" />
+                                                            <input type="text" name="ciudad" id="ciudad" required
+                                                                tabindex="12" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="correo">Email</label>
                                                             <input type="email" name="correo" id="correo" required
-                                                                tabindex="12" />
+                                                                tabindex="15" />
                                                         </div>
 
                                                     </div>
@@ -337,29 +338,29 @@
                                                         <div class="form-group">
                                                             <label for="sapellido">Segundo Apellido</label>
                                                             <input type="text" name="sapellido" id="sapellido" required
-                                                                tabindex="2" />
+                                                                tabindex="4" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="edad">Edad</label>
                                                             <input type="number" name="edad" id="edad" required
-                                                                tabindex="5" />
+                                                                tabindex="7" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="numeroIdentificacion">Número ID</label>
                                                             <input type="number" name="numeroIdentificacion"
-                                                                id="numeroIdentificacion" required tabindex="8" />
+                                                                id="numeroIdentificacion" required tabindex="10" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="direccionActual">Direccion</label>
                                                             <input type="text" name="direccionActual"
-                                                                id="direccionActual" required tabindex="10" />
+                                                                id="direccionActual" required tabindex="13" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="discapacidad">Discapacidad</label>
                                                             <select name="discapacidad" id="discapacidad" required
-                                                                tabindex="13">
+                                                                tabindex="16">
                                                                 <option value="">Seleccione..</option>
                                                                 <option value="Ninguna">Ninguna</option>
                                                                 <option value="Fisica">Discapacidad física</option>
@@ -381,16 +382,16 @@
                                                         <div class="form-group">
                                                             <label for="nombre">Nombre Completo</label>
                                                             <input type="text" name="nombre" id="nombre" required
-                                                                tabindex="3" />
+                                                                tabindex="5" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="lugarNacimiento">Lugar de Nacimiento</label>
                                                             <input type="text" name="lugarNacimiento"
-                                                                id="lugarNacimiento" required tabindex="6" />
+                                                                id="lugarNacimiento" required tabindex="8" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="genero">Género</label>
-                                                            <select name="genero" id="genero" required tabindex="9">
+                                                            <select name="genero" id="genero" required tabindex="11">
                                                                 <option value="">Seleccione...</option>
                                                                 <option value="Masculino">Masculino</option>
                                                                 <option value="Femenino">Femenino</option>
@@ -401,13 +402,13 @@
                                                         <div class="form-group">
                                                             <label for="celular">Celular</label>
                                                             <input type="number" name="celular" id="celular" required
-                                                                tabindex="11" />
+                                                                tabindex="14" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="vulnerabilidad">Vulnerabilidad</label>
                                                             <select name="vulnerabilidad" id="vulnerabilidad" required
-                                                                tabindex="14">
+                                                                tabindex="17">
                                                                 <option value="">Seleccione...</option>
                                                                 <option value="Ninguna">Ninguna</option>
                                                                 <option value="PersonaConDiscapacidad">Persona con
@@ -441,7 +442,7 @@
                                                         <!-- Primer grupo de campos -->
                                                         <div class="form-group">
                                                             <label for="nivelEstudio">Nivel de estudio</label>
-                                                            <select name="nivelEstudio" required tabindex="14">
+                                                            <select name="nivelEstudio" required tabindex="18">
                                                                 <option value="" disabled selected>Seleccione su nivel
                                                                     de estudio</option>
                                                                 <option value="primaria"> Ninguno</option>
@@ -456,7 +457,7 @@
 
                                                         <div class="form-group">
                                                             <label for="actividadEconomica">Actividad económica</label>
-                                                            <select name="actividadEconomica" required tabindex="18">
+                                                            <select name="actividadEconomica" required tabindex="21">
                                                                 <option value="" disabled selected>Seleccione su
                                                                     actividad económica</option>
                                                                 <option value="Agricultura">Agricultura</option>
@@ -477,7 +478,7 @@
                                                         <!-- Segundo grupo de campos -->
                                                         <div class="form-group">
                                                             <label for="estrato">Estrato</label>
-                                                            <select name="estrato" required tabindex="15">
+                                                            <select name="estrato" required tabindex="19">
                                                                 <option value=""> Seleccione...</option>
                                                                 <option value="Estrato 1">Estrato 1</option>
                                                                 <option value="Estrato 2">Estrato 2</option>
@@ -490,7 +491,7 @@
 
                                                         <div class="form-group">
                                                             <label for="oficio">Oficio</label>
-                                                            <select name="oficio" required tabindex="17">
+                                                            <select name="oficio" required tabindex="22">
                                                                 <option value="" disabled selected>Seleccione su oficio
                                                                 </option>
                                                                 <option value="ingeniero">Ingeniero</option>
@@ -514,7 +515,7 @@
                                                         <!-- Tercer grupo de campos -->
                                                         <div class="form-group">
                                                             <label for="sisben">Sisben</label>
-                                                            <select name="sisben" required tabindex="16">
+                                                            <select name="sisben" required tabindex="20">
                                                                 <option value="">Seleccione...</option>
                                                                 <option value="Grupo A1-A5 pobreza extrema">Grupo A1-A5
                                                                     pobreza extrema</option>
@@ -529,7 +530,7 @@
                                                         <div class="form-group">
                                                             <label for="nivelIngresoEconomico">Nivel de ingreso
                                                                 económico</label>
-                                                            <select name="nivelIngresoEconomico" required tabindex="19">
+                                                            <select name="nivelIngresoEconomico" required tabindex="23">
                                                                 <option value="" disabled selected>Seleccione su nivel
                                                                     de ingreso económico</option>
                                                                 <option value="0_salarios_minimos">0 salarios mínimos
@@ -566,13 +567,13 @@
                                                         <div class="form-group">
                                                             <label for="apellidosRecepciona">Apellidos</label>
                                                             <input type="text" name="apellidosRecepciona" required
-                                                                tabindex="20" />
+                                                                tabindex="24" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="correoRecepciona">Correo</label>
                                                             <input type="email" name="correoRecepciona" required
-                                                                tabindex="23" />
+                                                                tabindex="27" />
                                                         </div>
                                                     </div>
                                                     <div class="column">
@@ -581,13 +582,13 @@
                                                         <div class="form-group">
                                                             <label for="nombreRecepciona">Nombre Completo</label>
                                                             <input type="text" name="nombreRecepciona" required
-                                                                tabindex="21" />
+                                                                tabindex="25" />
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="celularRecepciona"> Celular</label>
                                                             <input type="text" name="celularRecepciona" required
-                                                                tabindex="24" />
+                                                                tabindex="28" />
                                                         </div>
                                                     </div>
 
@@ -597,7 +598,7 @@
                                                         <div class="form-group">
                                                             <label for="codigoRecepciona">Código</label>
                                                             <input type="text" name="codigoRecepciona" required
-                                                                tabindex="22" />
+                                                                tabindex="26" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -610,21 +611,23 @@
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="nombreAccionante">Nombre del accionante</label>
-                                                            <input type="text" name="nombreAccionante" />
+                                                            <input type="text" name="nombreAccionante" tabindex="29" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="correoAccionante">Correo</label>
-                                                            <input type="email" name="correoAccionante" />
+                                                            <input type="email" name="correoAccionante" tabindex="31" />
                                                         </div>
                                                     </div>
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="telefonoAccionante">Teléfono</label>
-                                                            <input type="number" name="telefonoAccionante" required />
+                                                            <input type="number" name="telefonoAccionante" tabindex="30"
+                                                                required />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="direccionAccionante">Dirección</label>
-                                                            <input type="text" name="direccionAccionante" required />
+                                                            <input type="text" name="direccionAccionante" tabindex="32"
+                                                                required />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -634,21 +637,23 @@
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="nombreAccionado">Nombre del accionante</label>
-                                                            <input type="text" name="nombreAccionado" />
+                                                            <input type="text" name="nombreAccionado" tabindex="33" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="correoAccionado">Correo</label>
-                                                            <input type="email" name="correoAccionado" />
+                                                            <input type="email" name="correoAccionado" tabindex="35" />
                                                         </div>
                                                     </div>
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="telefonoAccionado">Teléfono</label>
-                                                            <input type="number" name="telefonoAccionado" required />
+                                                            <input type="number" name="telefonoAccionado" tabindex="34"
+                                                                required />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="direccionAccionado">Dirección</label>
-                                                            <input type="text" name="direccionAccionado" required />
+                                                            <input type="text" name="direccionAccionado" tabindex="36"
+                                                                required />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -657,18 +662,18 @@
                                                 <div>
                                                     <label for="hechosInput">Hechos relevantes</label>
                                                     <textarea id="hechosInput" name="hechos" class="auto-numbering"
-                                                        required>1.</textarea>
+                                                        tabindex="37" required>1.</textarea>
                                                 </div>
                                                 <div>
                                                     <label for="pretensionesInput">Pretensiones</label>
                                                     <textarea id="pretensionesInput" name="pretensiones"
-                                                        class="auto-numbering" required>1.</textarea>
+                                                        class="auto-numbering" tabindex="38" required>1.</textarea>
                                                 </div>
                                                 <div>
                                                     <label for="observacionesInput">Observaciones a tener en cuenta para
                                                         el abordaje del caso</label>
                                                     <textarea id="observacionesInput" name="observaciones"
-                                                        class="auto-numbering" required>1.</textarea>
+                                                        class="auto-numbering" tabindex="39" required>1.</textarea>
                                                 </div>
 
                                                 <div>
@@ -802,11 +807,14 @@
                             </div>
                         </div>
                     </div>
-                    {{>footer}}
+
                 </section>
             </div>
+
         </div>
+
     </div>
+    {{>footer}}
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
