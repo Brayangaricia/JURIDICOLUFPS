@@ -5,6 +5,17 @@
   /* Espacio entre las columnas */
 }
 
+.form-inline {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 5px;
+  /* Espacio entre líneas */
+}
+
+.form-inline label {
+  margin-right: 5px;
+}
+
 .wrapper {
   position: relative;
   width: 100%;
