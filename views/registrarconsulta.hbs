@@ -19,199 +19,9 @@
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="/assets/css/custom.css" />
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/signature_pad@1.5.3/signature-pad.css">
+    <link rel="stylesheet" href="/assets/css/registrarconsulta.css" />
 
-    <style>
-        /* Estilos para el encabezado */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background-color: #f2f2f2;
-        }
-
-        .logos {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 20%;
-        }
-
-        .logos img {
-            max-width: 100px;
-            /* Ajusta este valor según el tamaño que desees */
-            height: auto;
-        }
-
-        .right-logo {
-            margin-left: auto;
-        }
-
-        .titulo-central {
-            text-align: center;
-            width: 60%;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            /* Espacio entre las filas */
-        }
-
-        .column {
-            width: calc(33.33% - 20px);
-            /* Calculamos el ancho de cada columna */
-            margin-bottom: 20px;
-            /* Espacio entre las columnas */
-            padding: 0 10px;
-            /* Espacio interno de cada columna */
-        }
-
-        .form-group {
-            margin-bottom: 10px;
-            /* Espacio entre cada etiqueta y su respectivo campo */
-        }
-
-        input,
-        select {
-            width: 100%;
-            /* Ancho del 100% para todos los inputs y selects */
-            padding: 8px;
-            /* Espacio interno */
-            box-sizing: border-box;
-            /* Incluir padding y border en el ancho total */
-            display: block;
-            /* Para asegurar que cada input esté en una línea */
-            margin-top: 5px;
-            /* Espacio superior entre inputs y selects */
-        }
-
-        label {
-            display: block;
-            /* Para asegurar que cada label esté en una línea */
-            margin-bottom: 5px;
-            /* Espacio inferior entre etiquetas */
-        }
-
-        h6 {
-
-            margin-top: -25px !important;
-            padding-top: 0px !important;
-        }
-
-        .contenedor-columnas {
-            display: flex;
-            justify-content: center;
-            /* Centrar horizontalmente */
-        }
-
-        .columna {
-            margin-right: 20px;
-            /* Espacio entre columnas */
-        }
-
-        .campo {
-            margin-bottom: 20px;
-            width: 100%;
-            /* Ancho de cada campo */
-        }
-
-        .inputs {
-            width: 100%;
-            padding: 8px;
-            border: none;
-            border-radius: 0;
-            border-bottom: 1px solid #ccc;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        /* Estilos personalizados para los elementos de formulario */
-        div {
-            margin-bottom: 1em;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 0.5em;
-            box-sizing: border-box;
-            overflow: hidden;
-            /* Ocultar la barra de desplazamiento */
-        }
-
-        @media print {
-
-            /* Establecer márgenes internos para el contenido principal */
-            .main-content {
-                padding: 10px;
-                /* Puedes ajustar este valor según sea necesario */
-            }
-
-
-
-            /* Mover la sección "Recepcion de consultas consultorio juridico UFPS" al principio de la página */
-            #formulario {
-                margin-top: -30px;
-                width: 100%;
-                max-width: 100%;
-                padding: 2px;
-                visibility: visible;
-            }
-
-            /* Estilos para el formulario y elementos esenciales */
-            body * {
-                visibility: hidden;
-            }
-
-            /* Mostrar solo el formulario y elementos esenciales */
-            #formulario,
-            #formulario * {
-                visibility: visible;
-            }
-
-            @page {
-                size: 21.59cm 33.02cm;
-                /* Tamaño de página oficio */
-                margin: 0;
-                /* Eliminar márgenes para aprovechar todo el espacio */
-            }
-
-            /* Estilos para resetear márgenes y rellenos */
-            .card,
-            .card-body,
-            .form-group {
-                margin: 0;
-                padding: 0;
-            }
-
-            /* Ajustar estilos para adaptar al tamaño de la página */
-            #formulario {
-                width: 100%;
-                max-width: 100%;
-                padding: 2px;
-            }
-
-            input[type="text"],
-            input[type="number"],
-            input[type="date"],
-            input[type="email"],
-            select {
-                height: 20px;
-                /* Ajusta la altura según lo necesites */
-                font-size: 12px;
-                /* Ajusta el tamaño de la fuente según sea necesario */
-                padding: 2px;
-                /* Añade espacio interno para las opciones */
-            }
-
-            button[name="registrarConsulta"],
-            input[type="file"] {
-                display: none;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -286,10 +96,12 @@
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="fechaRecepcion">Fecha de Recepción</label>
-                                                            <input type="text" class=" datepicker" name="fechaRecepcion"
-                                                                tabindex="2" required>
+                                                            <input type="text" class="datepicker" name="fechaRecepcion"
+                                                                tabindex="2" disabled>
                                                         </div>
                                                     </div>
+
+
                                                 </div>
 
 
@@ -310,19 +122,27 @@
                                                                 id="fechaNacimiento" required tabindex="6" />
                                                         </div>
                                                         <div class="form-group">
-                                                        <label for="tipoIdentificacion">Tipo ID</label>
-                                                            <select name="tipoIdentificacion" id="tipoIdentificacion" required tabindex="9">
+                                                            <label for="tipoIdentificacion">Tipo ID</label>
+                                                            <select name="tipoIdentificacion" id="tipoIdentificacion"
+                                                                required tabindex="9">
                                                                 <option value="">Seleccione...</option>
                                                                 <option value="C.C">C.C</option>
-                                                                <option value="Cédula Extranjera">Cédula Extranjera</option>
+                                                                <option value="Cédula Extranjera">Cédula Extranjera
+                                                                </option>
                                                                 <option value="Pasaporte">Pasaporte</option>
-                                                                <option value="Registro Civil de Nacimiento">Registro Civil de Nacimiento</option>
-                                                                <option value="Permiso Especial de Permanencia (PEP)">Permiso Especial de Permanencia (PEP)</option>
+                                                                <option value="Registro Civil de Nacimiento">Registro
+                                                                    Civil de Nacimiento</option>
+                                                                <option value="Permiso Especial de Permanencia (PEP)">
+                                                                    Permiso Especial de Permanencia (PEP)</option>
                                                                 <option value="Visa">Visa</option>
                                                                 <option value="Libreta Militar">Libreta Militar</option>
-                                                                <option value="Documento de Identidad Indígena">Documento de Identidad Indígena</option>
-                                                                <option value="Documento de Identidad de las Comunidades Negras (DICON)">Documento de Identidad de las Comunidades Negras (DICON)</option>
-                                                             </select>
+                                                                <option value="Documento de Identidad Indígena">
+                                                                    Documento de Identidad Indígena</option>
+                                                                <option
+                                                                    value="Documento de Identidad de las Comunidades Negras (DICON)">
+                                                                    Documento de Identidad de las Comunidades Negras
+                                                                    (DICON)</option>
+                                                            </select>
                                                         </div>
 
                                                         <div class="form-group">
@@ -394,8 +214,8 @@
                                                             <input type="text" name="lugarNacimiento"
                                                                 id="lugarNacimiento" required tabindex="8" />
                                                         </div>
-                                                       <div class="form-group">
-                                                        <label for="genero">Género</label>
+                                                        <div class="form-group">
+                                                            <label for="genero">Género</label>
                                                             <select name="genero" id="genero" required tabindex="11">
                                                                 <option value="">Seleccione...</option>
                                                                 <option value="Masculino">Masculino</option>
@@ -405,9 +225,10 @@
                                                                 <option value="Agénero">Agénero</option>
                                                                 <option value="Bigénero">Bigénero</option>
                                                                 <option value="Pangénero">Pangénero</option>
-                                                                <option value="Género no conforme">Género no conforme</option>
+                                                                <option value="Género no conforme">Género no conforme
+                                                                </option>
                                                                 <option value="Otro">Otro</option>
-                                                           </select>
+                                                            </select>
                                                         </div>
 
 
@@ -503,7 +324,8 @@
 
                                                         <div class="form-group">
                                                             <label for="oficio">Oficio</label>
-                                                            <input type="text" name="oficio" id="oficio" required tabindex="22">
+                                                            <input type="text" name="oficio" id="oficio" required
+                                                                tabindex="22">
                                                         </div>
 
 
@@ -692,79 +514,148 @@
                                                     UNIVERSIDAD FRANCISCO DE PAULA SANTANDER.
                                                 </p>
 
-                                          <style>
-    .form-inline {
-        display: inline-block;
-        vertical-align: middle;
-        margin-bottom: 5px; /* Espacio entre líneas */
-    }
+                                                <style>
+                                                    .form-inline {
+                                                        display: inline-block;
+                                                        vertical-align: middle;
+                                                        margin-bottom: 5px;
+                                                        /* Espacio entre líneas */
+                                                    }
 
-    .form-inline label {
-        margin-right: 5px;
-    }
-</style>
+                                                    .form-inline label {
+                                                        margin-right: 5px;
+                                                    }
+                                                </style>
 
-<p style="font-size: 10px; text-align: justify;">
-    Entre los suscritos, Aura Yulianath Balaguera Rodríguez identificada con cedula de ciudadanía No. de Cúcuta, quien en su condición de Directora General actúa en representación del Consultorio Jurídico de la Universidad Francisco de Paula Santander, quien adelante se denominará EL CONSULTORIO, y
-    <span class="form-inline">
-        <input type="text" id="nombreUsuario" name="nombreUsuario" style="border: none; border-bottom: 1px solid black; width: 200px;" placeholder="Nombre del usuario" required>
-    </span>,
-    identificado(a) con cedula de ciudadanía No.
-    <span class="form-inline">
-        <input type="text" id="ccUsuario" name="ccUsuario" style="border: none; border-bottom: 1px solid black; width: 150px;" placeholder="CC No." required>
-    </span>
-    de
-    <span class="form-inline">
-        <input type="text" id="ciudadUsuario" name="ciudadUsuario" style="border: none; border-bottom: 1px solid black; width: 100px;" placeholder="Ciudad" required>,
-    </span> 
-    quien en adelante se denominará EL USUARIO, hemos decidido suscribir el siguiente compromiso respecto de la prestación del servicio de asistencia jurídica:
-    PRIMERA: El USUARIO tendrá como deberes con el CONSULTORIO los siguientes:
-    1. Tratar con el debido respeto al personal que atiende su asunto.
-    2. Comprometerse con las obligaciones y el trámite judicial o administrativo que su asunto conlleve.
-    3. Relacionar en forma clara y precisa su dirección, correo electrónico y número telefónico donde se le pueda encontrar rápidamente, sea del lugar de residencia o trabajo.
-    4. Atender puntualmente las citas y gestiones que demande la atención del asunto.
-    5. Colaborar diligentemente con la tramitación del asunto e informar de manera veraz y oportuna los datos necesarios para la elaboración de la demanda o de cualquier tipo de memorial que lo requiera.
-    6. Entregar toda la información de la contraparte, ya sean datos de notificación u otros, que se requiere para el adelantamiento de actuaciones.
-    7. Informar cualquier novedad o circunstancia que modifique o cambie el trámite judicial o administrativo.
-    8. Aportar los documentos necesarios para el trámite de su proceso o asunto.
-    9. Sufragar los gastos que demande la tramitación de su asunto.
-    10. Dar cuenta de su situación económica cada vez que le sea solicitado, a fin de determinar si puede seguir disfrutando de los servicios del Consultorio.
-    SEGUNDA: La entrega de documentos solicitados o de la información requerida que habla la CLAUSULA PRIMERA deberá ser resuelta por el usuario en el término de 5 días hábiles posteriores a su solicitud. De no ser atendido el requerimiento en el término establecido se entenderá como falta de interés del USUARIO y se procederá con el archivo del asunto.
-    TERCERA: El USUARIO no tendrá que pagar suma alguna por la asesoría judicial o legal que le preste el CONSULTORIO, toda vez que es la prestación de un servicio gratuito, pero deberá correr por su cuenta y riesgo con los gastos causados con la actuación judicial o administrativa encomendada, tales como:
-    1. Fotocopias de todos los documentos necesarios para adelantar el trámite respectivo.
-    2. Cualquier publicación en radio o prensa.
-    3. Pago de honorarios de los auxiliares de la justicia, tales como: peritos, avaluadores, curadores ad litem, etc.
-    4. Gastos de notificación, condenas en costas y agencias en derecho, de derechos notariales, rentas y registro, así como de sanciones o multas ante la DIAN o Autoridades Administrativas o Judiciales y cualquier otro gasto que sea necesario para el cabal desarrollo del trámite judicial.
-    5. Los demás a los que haya lugar.
-    CUARTA: El USUARIO es el responsable de la radicación ante las entidades respectivas de los memoriales, oficios y demás documentos que se realicen dentro de su asunto a su nombre. Debiendo informar el radicado asignado o entregando copia del mismo para el seguimiento y gestión correspondiente, de haber lugar a la misma.
-    TERCERA: Queda establecido por acuerdo de las partes, que si por cualquier razón imputable a negligencia, desidia o falta de interés, el USUARIO incumple cualquiera de los deberes establecidos en la CLÁUSULA PRIMERA del presente compromiso, una vez sea verificada por el Consultorio Jurídico, se le comunicará mediante el medio más expedito la terminación de su proceso, solicitud o consulta, de manera unilateral y anticipada.
-    Para constancia se firma por las partes contratantes, en la ciudad de San José de Cúcuta, a los 
-    <span class="form-inline">
-        <input type="text" id="dia" name="dia" style="border: none; border-bottom: 1px solid black; width: 50px;" placeholder="Día" required>
-    </span>
-    días del mes de 
-    <span class="form-inline">
-        <input type="text" id="mes" name="mes" style="border: none; border-bottom: 1px solid black; width: 100px;" placeholder="Mes" required>
-    </span>
-    de 2024.
-    CONSULTORIO JURIDICO Aura Yulianath Balaguera Rodríguez Directora General del Consultorio Jurídico de la Universidad Francisco de Paula Santander USUARIO(A)
-    Nombre: 
-    <span class="form-inline">
-        <input type="text" id="nombreUsuario2" name="nombreUsuario2" style="border: none; border-bottom: 1px solid black; width: 200px;" placeholder="Nombre del usuario" required>
-    </span>
-    C.C No. 
-    <span class="form-inline">
-        <input type="text" id="ccUsuario2" name="ccUsuario2" style="border: none; border-bottom: 1px solid black; width: 150px;" placeholder="CC No." required>
-    </span>
-</p>
+                                                <p style="font-size: 10px; text-align: justify;">
+                                                    Entre los suscritos, Aura Yulianath Balaguera Rodríguez identificada
+                                                    con cedula de ciudadanía No. de Cúcuta, quien en su condición de
+                                                    Directora General actúa en representación del Consultorio Jurídico
+                                                    de la Universidad Francisco de Paula Santander, quien adelante se
+                                                    denominará EL CONSULTORIO, y
+                                                    <span class="form-inline">
+                                                        <input type="text" id="nombreUsuario" name="nombreUsuario"
+                                                            style="border: none; border-bottom: 1px solid black; width: 200px;"
+                                                            placeholder="Nombre del usuario" required>
+                                                    </span>,
+                                                    identificado(a) con cedula de ciudadanía No.
+                                                    <span class="form-inline">
+                                                        <input type="text" id="ccUsuario" name="ccUsuario"
+                                                            style="border: none; border-bottom: 1px solid black; width: 150px;"
+                                                            placeholder="CC No." required>
+                                                    </span>
+                                                    de
+                                                    <span class="form-inline">
+                                                        <input type="text" id="ciudadUsuario" name="ciudadUsuario"
+                                                            style="border: none; border-bottom: 1px solid black; width: 150px;"
+                                                            placeholder="Ciudad" required>,
+                                                    </span>
+                                                    quien en adelante se denominará EL USUARIO, hemos decidido suscribir
+                                                    el siguiente compromiso respecto de la prestación del servicio de
+                                                    asistencia jurídica:
+                                                    PRIMERA: El USUARIO tendrá como deberes con el CONSULTORIO los
+                                                    siguientes:
+                                                    1. Tratar con el debido respeto al personal que atiende su asunto.
+                                                    2. Comprometerse con las obligaciones y el trámite judicial o
+                                                    administrativo que su asunto conlleve.
+                                                    3. Relacionar en forma clara y precisa su dirección, correo
+                                                    electrónico y número telefónico donde se le pueda encontrar
+                                                    rápidamente, sea del lugar de residencia o trabajo.
+                                                    4. Atender puntualmente las citas y gestiones que demande la
+                                                    atención del asunto.
+                                                    5. Colaborar diligentemente con la tramitación del asunto e informar
+                                                    de manera veraz y oportuna los datos necesarios para la elaboración
+                                                    de la demanda o de cualquier tipo de memorial que lo requiera.
+                                                    6. Entregar toda la información de la contraparte, ya sean datos de
+                                                    notificación u otros, que se requiere para el adelantamiento de
+                                                    actuaciones.
+                                                    7. Informar cualquier novedad o circunstancia que modifique o cambie
+                                                    el trámite judicial o administrativo.
+                                                    8. Aportar los documentos necesarios para el trámite de su proceso o
+                                                    asunto.
+                                                    9. Sufragar los gastos que demande la tramitación de su asunto.
+                                                    10. Dar cuenta de su situación económica cada vez que le sea
+                                                    solicitado, a fin de determinar si puede seguir disfrutando de los
+                                                    servicios del Consultorio.
+                                                    SEGUNDA: La entrega de documentos solicitados o de la información
+                                                    requerida que habla la CLAUSULA PRIMERA deberá ser resuelta por el
+                                                    usuario en el término de 5 días hábiles posteriores a su solicitud.
+                                                    De no ser atendido el requerimiento en el término establecido se
+                                                    entenderá como falta de interés del USUARIO y se procederá con el
+                                                    archivo del asunto.
+                                                    TERCERA: El USUARIO no tendrá que pagar suma alguna por la asesoría
+                                                    judicial o legal que le preste el CONSULTORIO, toda vez que es la
+                                                    prestación de un servicio gratuito, pero deberá correr por su cuenta
+                                                    y riesgo con los gastos causados con la actuación judicial o
+                                                    administrativa encomendada, tales como:
+                                                    1. Fotocopias de todos los documentos necesarios para adelantar el
+                                                    trámite respectivo.
+                                                    2. Cualquier publicación en radio o prensa.
+                                                    3. Pago de honorarios de los auxiliares de la justicia, tales como:
+                                                    peritos, avaluadores, curadores ad litem, etc.
+                                                    4. Gastos de notificación, condenas en costas y agencias en derecho,
+                                                    de derechos notariales, rentas y registro, así como de sanciones o
+                                                    multas ante la DIAN o Autoridades Administrativas o Judiciales y
+                                                    cualquier otro gasto que sea necesario para el cabal desarrollo del
+                                                    trámite judicial.
+                                                    5. Los demás a los que haya lugar.
+                                                    CUARTA: El USUARIO es el responsable de la radicación ante las
+                                                    entidades respectivas de los memoriales, oficios y demás documentos
+                                                    que se realicen dentro de su asunto a su nombre. Debiendo informar
+                                                    el radicado asignado o entregando copia del mismo para el
+                                                    seguimiento y gestión correspondiente, de haber lugar a la misma.
+                                                    TERCERA: Queda establecido por acuerdo de las partes, que si por
+                                                    cualquier razón imputable a negligencia, desidia o falta de interés,
+                                                    el USUARIO incumple cualquiera de los deberes establecidos en la
+                                                    CLÁUSULA PRIMERA del presente compromiso, una vez sea verificada por
+                                                    el Consultorio Jurídico, se le comunicará mediante el medio más
+                                                    expedito la terminación de su proceso, solicitud o consulta, de
+                                                    manera unilateral y anticipada.
+                                                    Para constancia se firma por las partes contratantes, en la ciudad
+                                                    de San José de Cúcuta, a los
+                                                    <span class="form-inline">
+                                                        <input type="text" id="dia" name="dia"
+                                                            style="border: none; border-bottom: 1px solid black; width: 50px;"
+                                                            placeholder="Día" required>
+                                                    </span>
+                                                    días del mes de
+                                                    <span class="form-inline">
+                                                        <input type="text" id="mes" name="mes"
+                                                            style="border: none; border-bottom: 1px solid black; width: 100px;"
+                                                            placeholder="Mes" required>
+                                                    </span>
+                                                    de 2024.
+                                                    CONSULTORIO JURIDICO Aura Yulianath Balaguera Rodríguez Directora
+                                                    General del Consultorio Jurídico de la Universidad Francisco de
+                                                    Paula Santander USUARIO(A)
+                                                    Nombre:
+                                                    <span class="form-inline">
+                                                        <input type="text" id="nombreUsuario2" name="nombreUsuario2"
+                                                            style="border: none; border-bottom: 1px solid black; width: 200px;"
+                                                            placeholder="Nombre del usuario" required>
+                                                    </span>
+                                                    C.C No.
+                                                    <span class="form-inline">
+                                                        <input type="text" id="ccUsuario2" name="ccUsuario2"
+                                                            style="border: none; border-bottom: 1px solid black; width: 150px;"
+                                                            placeholder="CC No." required>
+                                                    </span>
+                                                </p>
 
 
                                                 <div class="contenedor-columnas">
                                                     <div class="columna">
                                                         <div class="campo">
                                                             <label for="firmaEstudiante">Firma del Estudiante:</label>
-                                                            <input class="inputs" type="text" id="firmaEstudiante"
-                                                                name="firmaEstudiante" />
+                                                            <div class="columnita">
+                                                                <div class="wrapper">
+                                                                    <canvas id="signature-pad1" class="signature-pad"
+                                                                        width="230" height="40"></canvas>
+                                                                </div>
+                                                                <div>
+                                                                    <button id="clear1">Limpiar</button>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="campo">
                                                             <input class="input" type="text" id="firmaEstudiante"
@@ -777,8 +668,17 @@
                                                     <div class="columna">
                                                         <div class="campo">
                                                             <label for="firmaUsuario">Firma del Usuario:</label>
-                                                            <input class="inputs" type="text" id="firmaUsuario"
-                                                                name="firmaUsuario" />
+                                                            <div class="columnita">
+                                                                <div class="wrapper">
+                                                                    <canvas id="signature-pad2" class="signature-pad"
+                                                                        width="230" height="40"></canvas>
+                                                                </div>
+                                                                <div>
+                                                                    <button id="clear2">Limpiar</button>
+                                                                </div>
+                                                            </div>
+
+
                                                         </div>
                                                         <div class="campo">
                                                             <input class="input" type="text" id="firmaEstudiante"
@@ -787,6 +687,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+
+
 
                                                 <!-- Botón de registro -->
                                                 <div class="form-group text-end">
@@ -798,7 +701,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+       6                 </div>
                     </div>
 
                 </section>
@@ -901,6 +804,32 @@
         });
     </script>
     {{/if}}
+
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@1.5.3/signature_pad.min.js"></script>
+
+    <script>
+        var signaturePad1 = new SignaturePad(document.getElementById('signature-pad1'), {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'rgb(0, 0, 0)'
+        });
+
+        var clearButton1 = document.getElementById('clear1');
+
+        clearButton1.addEventListener('click', function (event) {
+            signaturePad1.clear();
+        });
+
+        var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
+            backgroundColor: 'rgba(255, 255, 255, 0)',
+            penColor: 'rgb(0, 0, 0)'
+        });
+
+        var clearButton2 = document.getElementById('clear2');
+
+        clearButton2.addEventListener('click', function (event) {
+            signaturePad2.clear();
+        });
+    </script>
 
 
     <!-- General JS Scripts -->
