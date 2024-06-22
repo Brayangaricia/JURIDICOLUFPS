@@ -1,0 +1,223 @@
+.columnita {
+  width: 230px;
+  /* Ancho del contenedor de firma */
+  margin: 0 10px;
+  /* Espacio entre las columnas */
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  /* Ancho del contenedor */
+  height: 40px;
+  /* Altura del contenedor reducida */
+  margin-bottom: 10px;
+  /* Espacio inferior */
+  border: 1px solid #ccc;
+  /* Borde sólido de color gris claro */
+  border-radius: 3px;
+  /* Bordes redondeados */
+  overflow: hidden;
+  /* Para esconder el desbordamiento del canvas */
+}
+
+.signature-pad {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Lienzo ocupa todo el espacio del contenedor */
+  height: 100%;
+  /* Lienzo ocupa todo el espacio del contenedor */
+}
+
+button {
+  margin-right: 5px;
+}
+
+/* Estilos para el encabezado */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f2f2f2;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+}
+
+.logos img {
+  max-width: 100px;
+  /* Ajusta este valor según el tamaño que desees */
+  height: auto;
+}
+
+.right-logo {
+  margin-left: auto;
+}
+
+.titulo-central {
+  text-align: center;
+  width: 60%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  /* Espacio entre las filas */
+}
+
+.column {
+  width: calc(33.33% - 20px);
+  /* Calculamos el ancho de cada columna */
+  margin-bottom: 20px;
+  /* Espacio entre las columnas */
+  padding: 0 10px;
+  /* Espacio interno de cada columna */
+}
+
+.form-group {
+  margin-bottom: 10px;
+  /* Espacio entre cada etiqueta y su respectivo campo */
+}
+
+input,
+select {
+  width: 100%;
+  /* Ancho del 100% para todos los inputs y selects */
+  padding: 8px;
+  /* Espacio interno */
+  box-sizing: border-box;
+  /* Incluir padding y border en el ancho total */
+  display: block;
+  /* Para asegurar que cada input esté en una línea */
+  margin-top: 5px;
+  /* Espacio superior entre inputs y selects */
+}
+
+label {
+  display: block;
+  /* Para asegurar que cada label esté en una línea */
+  margin-bottom: 5px;
+  /* Espacio inferior entre etiquetas */
+}
+
+h6 {
+  margin-top: -25px !important;
+  padding-top: 0px !important;
+}
+
+.contenedor-columnas {
+  display: flex;
+  justify-content: center;
+  /* Centrar horizontalmente */
+}
+
+.columna {
+  margin-right: 20px;
+  /* Espacio entre columnas */
+}
+
+.campo {
+  margin-bottom: 20px;
+  width: 100%;
+  /* Ancho de cada campo */
+}
+
+.inputs {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Estilos personalizados para los elementos de formulario */
+div {
+  margin-bottom: 1em;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Ocultar la barra de desplazamiento */
+}
+
+@media print {
+  /* Establecer márgenes internos para el contenido principal */
+  .main-content {
+    padding: 10px;
+    /* Puedes ajustar este valor según sea necesario */
+  }
+
+  /* Mover la sección "Recepcion de consultas consultorio juridico UFPS" al principio de la página */
+  #formulario {
+    margin-top: -30px;
+    width: 100%;
+    max-width: 100%;
+    padding: 2px;
+    visibility: visible;
+  }
+
+  /* Estilos para el formulario y elementos esenciales */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Mostrar solo el formulario y elementos esenciales */
+  #formulario,
+  #formulario * {
+    visibility: visible;
+  }
+
+  @page {
+    size: 21.59cm 33.02cm;
+    /* Tamaño de página oficio */
+    margin: 0;
+    /* Eliminar márgenes para aprovechar todo el espacio */
+  }
+
+  /* Estilos para resetear márgenes y rellenos */
+  .card,
+  .card-body,
+  .form-group {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ajustar estilos para adaptar al tamaño de la página */
+  #formulario {
+    width: 100%;
+    max-width: 100%;
+    padding: 2px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="email"],
+  select {
+    height: 20px;
+    /* Ajusta la altura según lo necesites */
+    font-size: 12px;
+    /* Ajusta el tamaño de la fuente según sea necesario */
+    padding: 2px;
+    /* Añade espacio interno para las opciones */
+  }
+
+  button[name="registrarConsulta"],
+  input[type="file"] {
+    display: none;
+  }
+}
