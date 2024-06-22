@@ -692,13 +692,33 @@
                                                     UNIVERSIDAD FRANCISCO DE PAULA SANTANDER.
                                                 </p>
 
-                                           <p style="font-size: 10px; text-align: justify;">
+                                          <style>
+    .form-inline {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 5px; /* Espacio entre líneas */
+    }
+
+    .form-inline label {
+        margin-right: 5px;
+    }
+</style>
+
+<p style="font-size: 10px; text-align: justify;">
     Entre los suscritos, Aura Yulianath Balaguera Rodríguez identificada con cedula de ciudadanía No. de Cúcuta, quien en su condición de Directora General actúa en representación del Consultorio Jurídico de la Universidad Francisco de Paula Santander, quien adelante se denominará EL CONSULTORIO, y
-    <input type="text" name="nombreUsuario" style="border: none; border-bottom: 1px solid black; width: 200px;" placeholder="Nombre del usuario" required>,
-    identificado(a) con cedula de ciudadanía No. 
-    <input type="text" name="ccUsuario" style="border: none; border-bottom: 1px solid black; width: 150px;" placeholder="CC No." required>
-    de 
-    <input type="text" name="ciudadUsuario" style="border: none; border-bottom: 1px solid black; width: 100px;" placeholder="Ciudad" required>, 
+    <span class="form-inline">
+        <label for="nombreUsuario">Nombre: </label>
+        <input type="text" id="nombreUsuario" name="nombreUsuario" style="border: none; border-bottom: 1px solid black; width: 200px;" placeholder="Nombre del usuario" required>
+    </span>,
+    identificado(a) con cedula de ciudadanía No.
+    <span class="form-inline">
+        <label for="ccUsuario">C.C No. </label>
+        <input type="text" id="ccUsuario" name="ccUsuario" style="border: none; border-bottom: 1px solid black; width: 150px;" placeholder="CC No." required>
+    </span>
+    de
+    <span class="form-inline">
+        <input type="text" id="ciudadUsuario" name="ciudadUsuario" style="border: none; border-bottom: 1px solid black; width: 100px;" placeholder="Ciudad" required>,
+    </span> 
     quien en adelante se denominará EL USUARIO, hemos decidido suscribir el siguiente compromiso respecto de la prestación del servicio de asistencia jurídica:
     PRIMERA: El USUARIO tendrá como deberes con el CONSULTORIO los siguientes:
     1. Tratar con el debido respeto al personal que atiende su asunto.
@@ -720,18 +740,26 @@
     5. Los demás a los que haya lugar.
     CUARTA: El USUARIO es el responsable de la radicación ante las entidades respectivas de los memoriales, oficios y demás documentos que se realicen dentro de su asunto a su nombre. Debiendo informar el radicado asignado o entregando copia del mismo para el seguimiento y gestión correspondiente, de haber lugar a la misma.
     TERCERA: Queda establecido por acuerdo de las partes, que si por cualquier razón imputable a negligencia, desidia o falta de interés, el USUARIO incumple cualquiera de los deberes establecidos en la CLÁUSULA PRIMERA del presente compromiso, una vez sea verificada por el Consultorio Jurídico, se le comunicará mediante el medio más expedito la terminación de su proceso, solicitud o consulta, de manera unilateral y anticipada.
-    Para constancia se firma por las partes contratantes, en la ciudad de San José de Cúcuta, a los
-    <input type="text" name="dia" style="border: none; border-bottom: 1px solid black; width: 50px;" placeholder="Día" required>
-    días del mes de
-    <input type="text" name="mes" style="border: none; border-bottom: 1px solid black; width: 100px;" placeholder="Mes" required>
+    Para constancia se firma por las partes contratantes, en la ciudad de San José de Cúcuta, a los 
+    <span class="form-inline">
+        <input type="text" id="dia" name="dia" style="border: none; border-bottom: 1px solid black; width: 50px;" placeholder="Día" required>
+    </span>
+    días del mes de 
+    <span class="form-inline">
+        <input type="text" id="mes" name="mes" style="border: none; border-bottom: 1px solid black; width: 100px;" placeholder="Mes" required>
+    </span>
     de 2024.
-    CONSULTORIO JURIDICO
-    Aura Yulianath Balaguera Rodríguez Directora General del Consultorio Jurídico de la Universidad Francisco de Paula Santander USUARIO(A)
+    CONSULTORIO JURIDICO Aura Yulianath Balaguera Rodríguez Directora General del Consultorio Jurídico de la Universidad Francisco de Paula Santander USUARIO(A)
     Nombre: 
-    <input type="text" name="nombreUsuario" style="border: none; border-bottom: 1px solid black; width: 200px;" placeholder="Nombre del usuario" required>
+    <span class="form-inline">
+        <input type="text" id="nombreUsuario2" name="nombreUsuario2" style="border: none; border-bottom: 1px solid black; width: 200px;" placeholder="Nombre del usuario" required>
+    </span>
     C.C No. 
-    <input type="text" name="ccUsuario" style="border: none; border-bottom: 1px solid black; width: 150px;" placeholder="CC No." required>
+    <span class="form-inline">
+        <input type="text" id="ccUsuario2" name="ccUsuario2" style="border: none; border-bottom: 1px solid black; width: 150px;" placeholder="CC No." required>
+    </span>
 </p>
+
 
                                                 <div class="contenedor-columnas">
                                                     <div class="columna">
