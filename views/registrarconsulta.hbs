@@ -85,8 +85,8 @@
                                                 <input type="hidden" name="idAccionado" id="idAccionado" />
 
                                                 <input type="hidden" name="idSolicitante" id="idSolicitante" />
-
-                                                <div style="display: flex;">
+                                                
+                                                 <div class="row">
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="radicado">Radicado</label>
@@ -97,14 +97,16 @@
                                                         <div class="form-group">
                                                             <label for="fechaRecepcion">Fecha de Recepción</label>
                                                             <input type="text" class="datepicker" name="fechaRecepcion"
-                                                                tabindex="2">
+                                                                readonly>
                                                         </div>
                                                     </div>
-
-
+                                                    <div style="flex: 1;">
+                                                        <div class="form-group">
+                                                            <label for="horaActual">Hora Actual:</label>
+                                                            <span id="horaActual"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-
-
                                                 <!-- Datos del Solicitante -->
                                                 <h6>Datos Básicos del Solicitante</h6>
 
@@ -687,6 +689,28 @@
 
     </div>
     {{>footer}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var spanHoraActual = document.getElementById('horaActual');
+
+            // Función para obtener y mostrar la hora actual
+            function mostrarHoraActual() {
+                var ahora = new Date();
+                var horas = ahora.getHours().toString().padStart(2, '0');
+                var minutos = ahora.getMinutes().toString().padStart(2, '0');
+                var segundos = ahora.getSeconds().toString().padStart(2, '0');
+                var horaActual = horas + ':' + minutos + ':' + segundos;
+
+                spanHoraActual.textContent = horaActual;
+            }
+
+            // Mostrar la hora actual al cargar la página
+            mostrarHoraActual();
+
+            // Opcional: Actualizar la hora cada segundo (actualización en tiempo real)
+            setInterval(mostrarHoraActual, 1000);
+        });
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
