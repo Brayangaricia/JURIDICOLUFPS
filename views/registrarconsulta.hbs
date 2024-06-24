@@ -506,8 +506,7 @@
                                                 <input type="text" hidden name="archivoNamePDF" id="archivoNamePDF" />
                                                 <input type="text" hidden name="archivoBase64PDF"
                                                     id="archivoBase64PDF" />
-
-                                                <p
+                                                                                               <p
                                                     style="font-size: 10px; text-align: center; font-weight: bold; color: #000000; line-height: 1;">
                                                     COMPROMISOS ADQUIRIDOS POR EL USUARIO AL SOLICITAR EL SERVICIO DE
                                                     ASISTENCIA JURIDICA AL CONSULTORIO JURIDICO <br>
@@ -523,21 +522,18 @@
                                                     de la Universidad Francisco de Paula Santander, quien adelante se
                                                     denominará EL CONSULTORIO, y
                                                     <span class="form-inline">
-                                                        <input type="text" id="nombreUsuario" name="nombreUsuario"
-                                                            style="border: none; border-bottom: 1px solid black; width: 200px;"
-                                                            placeholder="Nombre del usuario" required>
+                                                        <input type="text"
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
                                                     </span>,
                                                     identificado(a) con cedula de ciudadanía No.
                                                     <span class="form-inline">
-                                                        <input type="text" id="ccUsuario" name="ccUsuario"
-                                                            style="border: none; border-bottom: 1px solid black; width: 150px;"
-                                                            placeholder="CC No." required>
+                                                        <input type="text"
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
                                                     </span>
                                                     de
                                                     <span class="form-inline">
-                                                        <input type="text" id="ciudadUsuario" name="ciudadUsuario"
-                                                            style="border: none; border-bottom: 1px solid black; width: 150px;"
-                                                            placeholder="Ciudad" required>,
+                                                        <input type="text"
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
                                                     </span>
                                                     quien en adelante se denominará EL USUARIO, hemos decidido suscribir
                                                     el siguiente compromiso respecto de la prestación del servicio de
@@ -604,14 +600,14 @@
                                                     de San José de Cúcuta, a los
                                                     <span class="form-inline">
                                                         <input type="text" id="dia" name="dia"
-                                                            style="border: none; border-bottom: 1px solid black; width: 50px;"
-                                                            placeholder="Día" required>
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
+
                                                     </span>
                                                     días del mes de
                                                     <span class="form-inline">
                                                         <input type="text" id="mes" name="mes"
-                                                            style="border: none; border-bottom: 1px solid black; width: 100px;"
-                                                            placeholder="Mes" required>
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
+
                                                     </span>
                                                     de 2024.
                                                     CONSULTORIO JURIDICO Aura Yulianath Balaguera Rodríguez Directora
@@ -620,14 +616,14 @@
                                                     Nombre:
                                                     <span class="form-inline">
                                                         <input type="text" id="nombreUsuario2" name="nombreUsuario2"
-                                                            style="border: none; border-bottom: 1px solid black; width: 200px;"
-                                                            placeholder="Nombre del usuario" required>
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
+
                                                     </span>
                                                     C.C No.
                                                     <span class="form-inline">
                                                         <input type="text" id="ccUsuario2" name="ccUsuario2"
-                                                            style="border: none; border-bottom: 1px solid black; width: 150px;"
-                                                            placeholder="CC No." required>
+                                                            style="height: 20px; padding: 2px 5px; font-size: 14px; line-height: normal; border-bottom: 1px solid #ccc; border-radius: 4px; border-top: none; border-left: none; border-right: none;">
+
                                                     </span>
                                                 </p>
 
@@ -640,9 +636,6 @@
                                                                 <div class="wrapper">
                                                                     <canvas id="signature-pad1" class="signature-pad"
                                                                         width="230" height="40"></canvas>
-                                                                </div>
-                                                                <div>
-                                                                    <button id="clear1">Limpiar</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -662,9 +655,6 @@
                                                                     <canvas id="signature-pad2" class="signature-pad"
                                                                         width="230" height="40"></canvas>
                                                                 </div>
-                                                                <div>
-                                                                    <button id="clear2">Limpiar</button>
-                                                                </div>
                                                             </div>
 
 
@@ -676,9 +666,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-
 
                                                 <!-- Botón de registro -->
                                                 <div class="form-group text-end">
@@ -802,22 +789,12 @@
             penColor: 'rgb(0, 0, 0)'
         });
 
-        var clearButton1 = document.getElementById('clear1');
-
-        clearButton1.addEventListener('click', function (event) {
-            signaturePad1.clear();
-        });
-
         var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), {
             backgroundColor: 'rgba(255, 255, 255, 0)',
             penColor: 'rgb(0, 0, 0)'
         });
 
-        var clearButton2 = document.getElementById('clear2');
 
-        clearButton2.addEventListener('click', function (event) {
-            signaturePad2.clear();
-        });
     </script>
 
 
@@ -838,6 +815,10 @@
     <!-- Template JS File -->
     <script src="/assets/js/scripts.js"></script>
     <!-- Custom JS File -->
+    <script src="/assets/js/custom.js"></script>
+</body>
+
+</html>
     <script src="/assets/js/custom.js"></script>
 </body>
 
