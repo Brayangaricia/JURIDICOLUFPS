@@ -85,8 +85,8 @@
                                                 <input type="hidden" name="idAccionado" id="idAccionado" />
 
                                                 <input type="hidden" name="idSolicitante" id="idSolicitante" />
-                                                
-                                                 <div class="row">
+
+                                                <div class="row">
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="radicado">Radicado</label>
@@ -96,14 +96,16 @@
                                                     <div style="flex: 1; margin-right: 10px;">
                                                         <div class="form-group">
                                                             <label for="fechaRecepcion">Fecha de Recepción</label>
-                                                            <input type="text" class="datepicker" name="fechaRecepcion"
-                                                                readonly>
+                                                            <input type="date" name="fechaRecepcion" id="fechaRecepcion"
+                                                                readonly style=" cursor: not-allowed;">
                                                         </div>
                                                     </div>
+
                                                     <div style="flex: 1;">
                                                         <div class="form-group">
                                                             <label for="horaActual">Hora Actual:</label>
-                                                            <span id="horaActual"></span>
+                                                            <span id="horaActual"
+                                                                style="background-color: #f0f0f0; cursor: not-allowed;"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -508,7 +510,7 @@
                                                 <input type="text" hidden name="archivoNamePDF" id="archivoNamePDF" />
                                                 <input type="text" hidden name="archivoBase64PDF"
                                                     id="archivoBase64PDF" />
-                                                                                               <p
+                                                <p
                                                     style="font-size: 10px; text-align: center; font-weight: bold; color: #000000; line-height: 1;">
                                                     COMPROMISOS ADQUIRIDOS POR EL USUARIO AL SOLICITAR EL SERVICIO DE
                                                     ASISTENCIA JURIDICA AL CONSULTORIO JURIDICO <br>
@@ -674,6 +676,7 @@
                                                     <button type="submit" name="registrarConsulta"
                                                         class="btn btn-primary">Registrar</button>
                                                 </div>
+
                                             </form>
                                         </div>
                                     </div>
@@ -820,7 +823,45 @@
 
 
     </script>
+    <script>
+        // Función para obtener la fecha actual en formato 'yyyy-mm-dd'
+        function obtenerFechaActual() {
+            var hoy = new Date();
+            var dd = hoy.getDate();
+            var mm = hoy.getMonth() + 1; // Los meses son indexados desde 0
+            var yyyy = hoy.getFullYear();
 
+            // Formatear la fecha con dos dígitos para el día y mes
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+
+            return yyyy + '-' + mm + '-' + dd;
+        }
+
+        // Función para inicializar el campo de fecha con la fecha actual
+        function inicializarFechaActual() {
+            var fechaActual = obtenerFechaActual();
+            document.getElementById('fechaRecepcion').value = fechaActual;
+        }
+
+        // Llamar a la función de inicialización al cargar la página
+        inicializarFechaActual();
+
+        // Evitar que se abra el selector de fecha al hacer clic en el campo
+        document.getElementById('fechaRecepcion').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del clic
+            return false;
+        });
+
+        // Actualizar la fecha actual automáticamente cada día
+        setInterval(function () {
+            inicializarFechaActual();
+        }, 86400000); // 86400000 milisegundos = 1 día
+    </script>
 
     <!-- General JS Scripts -->
     <script src="/assets/js/app.min.js"></script>
@@ -839,10 +880,6 @@
     <!-- Template JS File -->
     <script src="/assets/js/scripts.js"></script>
     <!-- Custom JS File -->
-    <script src="/assets/js/custom.js"></script>
-</body>
-
-</html>
     <script src="/assets/js/custom.js"></script>
 </body>
 
